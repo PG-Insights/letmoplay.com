@@ -119,12 +119,12 @@ async def email_form(request: Request):
 
 @general_pages_router.post("/submit-email", response_model=None)
 async def submit_email_form(request: Request,
-                            email: str = Form(...),
+                            form_email: str = Form(...),
                             ) -> templates.TemplateResponse:
     # Create DataFrame
     data = {
         'Name': ['None'],
-        'Email': [str(email)],
+        'Email': [str(form_email)],
         'Subject': ['None'],
         'Message': ['None'],
         'Timestamp': [str(datetime.now())]
@@ -158,7 +158,7 @@ async def submit_email_form(request: Request,
         ),
         {
             "request": request,
-            "name": email,
+            "name": form_email,
         }
     )
 
