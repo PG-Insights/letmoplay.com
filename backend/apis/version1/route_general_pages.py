@@ -102,6 +102,21 @@ async def submit_form(request: Request,
     )
 
 
+@general_pages_router.get("/email-form", response_class=HTMLResponse)
+async def email_form(request: Request):
+    return templates.TemplateResponse(
+        str(
+            Path(
+                'components',
+                'email-form.html'
+            )
+        ),
+        {
+            "request": request
+        }
+    )
+
+
 @general_pages_router.post("/submit-email", response_model=None)
 async def submit_email_form(request: Request,
                             email: str = Form(...),
