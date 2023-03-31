@@ -102,6 +102,52 @@ async def submit_form(request: Request,
     )
 
 
+@general_pages_router.post("/submit-email", response_model=None)
+async def submit_email_form(request: Request,
+                            email: str = Form(...),
+                            ) -> templates.TemplateResponse:
+    # Create DataFrame
+    data = {
+        'Name': ['None'],
+        'Email': [str(email)],
+        'Subject': ['None'],
+        'Message': ['None'],
+        'Timestamp': [str(datetime.now())]
+    }
+    df = pd.DataFrame(data)
+    data_path = Path(
+        '.',
+        'backend',
+        'db',
+        'emails_db',
+        'subscribers.csv'
+    )
+    if os.path.exists(str(data_path)):
+        df = pd.concat(
+            [
+                pd.read_csv(str(data_path)).copy(),
+                df.copy()
+            ],
+            axis=0
+        )
+    # Save to CSV file
+    df.to_csv(str(data_path), index=False)
+
+    # Render success template
+    return templates.TemplateResponse(
+        str(
+            Path(
+                'components',
+                'success.html'
+            )
+        ),
+        {
+            "request": request,
+            "name": email,
+        }
+    )
+
+
 @general_pages_router.get("/unsubscribe", response_class=HTMLResponse)
 async def unsubscribe(
     request: Request
