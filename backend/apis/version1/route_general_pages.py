@@ -62,10 +62,10 @@ async def submit_form(request: Request,
                       ) -> templates.TemplateResponse:
     # Create DataFrame
     data = {
-        'Name': [name],
-        'Email': [email],
-        'Subject': [subject],
-        'Message': [message],
+        'Name': [str(name)],
+        'Email': [str(email)],
+        'Subject': [str(subject)],
+        'Message': [str(message)],
         'Timestamp': [str(datetime.now())]
     }
     df = pd.DataFrame(data)
