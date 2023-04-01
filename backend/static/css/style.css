@@ -665,7 +665,7 @@ section {
 --------------------------------------------------------------*/
 .about {
   padding: 140px 0;
-  background: url("../img/why-us_v2.svg") top center no-repeat;
+  background: url("../img/about-bg.png") top center no-repeat;
   position: relative;
 }
 
@@ -1057,7 +1057,7 @@ section {
 # Cta
 --------------------------------------------------------------*/
 .cta {
-  background: linear-gradient(rgba(5, 74, 133, 0.8), rgba(5, 74, 133, 0.9)), url("../img/cta-bg_v2.svg") fixed center center;
+  background: linear-gradient(rgba(5, 74, 133, 0.8), rgba(5, 74, 133, 0.9)), url("../img/why-us_v2.svg") fixed center center;
   background-size: cover;
   padding: 120px 0;
 }
