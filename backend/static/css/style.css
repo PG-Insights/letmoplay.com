@@ -812,7 +812,7 @@ section {
 # Why Us
 --------------------------------------------------------------*/
 .why-us {
-  background: #f1f8ff;
+  background: #f1f8ff, url("../img/kc_union_station_v2.svg") fixed center no-repeat;
   padding: 0;
 }
 
