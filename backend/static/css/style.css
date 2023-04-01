@@ -812,12 +812,22 @@ section {
 # Why Us
 --------------------------------------------------------------*/
 .why-us {
+  background: url("../img/kc_union_station_v2.svg") fixed center no-repeat;
   background: #f1f8ff;
   padding: 0;
 }
 
+.why-us:before {
+  content: "";
+  background: rgba(241, 248, 255 0.9);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
 .why-us .content {
-  background: url("../img/kc_union_station_v2.svg") fixed center no-repeat;
   padding: 60px 100px 0 100px;
 }
 
