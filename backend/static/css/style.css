@@ -812,7 +812,7 @@ section {
 # Why Us
 --------------------------------------------------------------*/
 .why-us {
-  background: linear-gradient(0deg, rgba(241, 248, 255 0.4), rgba(241, 248, 255 0.9)), url("../img/stl_louis_street_bg.svg") fixed center no-repeat;
+  background: linear-gradient(0deg, rgba(241, 248, 255 0.4), rgba(241, 248, 255 0.9)), url("../img/stl_louis_street_bg.svg") fixed center center;
   background-size: cover;
   padding: 0;
 }
