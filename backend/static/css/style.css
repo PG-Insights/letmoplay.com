@@ -1616,7 +1616,7 @@ section {
 
 .contact .php-email-form {
   width: 100%;
-  background: #fff;
+  background: transparent;
 }
 
 .contact .php-email-form .form-group {
