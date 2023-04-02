@@ -1058,7 +1058,7 @@ section {
 # Cta
 --------------------------------------------------------------*/
 .cta {
-  background: linear-gradient(rgba(5, 74, 133, 0.8), rgba(5, 74, 133, 0.9)), url("../img/why-us_v2.svg") fixed center center;
+  background: linear-gradient(rgba(5, 74, 133, 0.8), rgba(5, 74, 133, 0.9)), url("../img/stl_louis_street_bg.jpg") fixed center center;
   background-size: cover;
   padding: 120px 0;
 }
@@ -1558,7 +1558,7 @@ section {
 # Contact
 --------------------------------------------------------------*/
 .contact {
-  background: url("../img/stl_louis_street_bg.jpg") fixed center center;
+  background: url("../img/why-us_v2.svg") fixed center center;
   position: relative;
 }
 
