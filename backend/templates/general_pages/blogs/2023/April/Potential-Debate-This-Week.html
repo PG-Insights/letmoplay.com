@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html>
   {% extends "shared/base.html" %}
-
-  <body>
-  {% block header %} 
-  {% endblock %}
-  
-  {% block title %} 
-  
-  <title>Let MO Play - Blog</title>
-  {% endblock %}
+    {% block header %}
+    <meta 
+      property="og:image" 
+      content="{{ url_for('static', path='img/Potential-Debate-This-Week.jpg') }}"
+      alt="Potential Debate Creative"
+    >
+    {% endblock %}
+    
+    {% block title %} 
+    <title>Let MO Play - Blog</title>
+    {% endblock %}
+    
   {% block content %} 
+  <body>
 
   <main id="main">
   
