@@ -1,7 +1,7 @@
 <li class="dropdown"><a href="#"><span>Blogs</span> <i class="bi bi-chevron-down"></i></a>
   {% for year, month_dict in all_blogs_dict.items() %}
   <ul>
-    <li><a href="#">{{ year }}</a></li>
+    <li><a href="#" class="dropdown">{{ year }}</a></li>
     {% for month, blog_list in month_dict.items() %}
     <li class="dropdown"><a href="#"><span>{{ month }}</span> <i class="bi bi-chevron-right"></i></a>
       <ul>
