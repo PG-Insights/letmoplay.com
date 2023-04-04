@@ -52,6 +52,21 @@ async def contact(request: Request):
         },
     )
 
+
+@general_pages_router.get("/blog")
+async def blog(request: Request):
+    return templates.TemplateResponse(
+        str(
+            Path(
+                'general_pages',
+                'blog.html'
+            )
+        ),
+        {
+            "request": request,
+        },
+    )
+
 @general_pages_router.get("/form", response_class=HTMLResponse)
 async def form(request: Request):
     return templates.TemplateResponse(
