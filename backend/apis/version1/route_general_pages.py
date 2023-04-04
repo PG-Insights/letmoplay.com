@@ -10,9 +10,10 @@ import os
 import pandas as pd
 from datetime import datetime
 from pathlib import Path
-from fastapi import APIRouter, Request, Form
+from fastapi import APIRouter, Request, Form, HTTPException
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
+from get_all_blogs_dict import get_all_blogs_dict
 
 templates_dir = Path(
     Path(__file__).parents[2],
@@ -23,8 +24,19 @@ templates = Jinja2Templates(directory=str(templates_dir))
 general_pages_router = APIRouter()
 
 
+async def get_all_blogs_for_nav():
+    blog_file_path = Path(
+        Path(__file__).parents[2],
+        'templates',
+        'general_pages', 
+        'blogs',
+    )
+    return get_all_blogs_dict(blog_file_path)
+
+
 @general_pages_router.get("/")
 async def home(request: Request):
+    blogs_dict = await get_all_blogs_for_nav()
     return templates.TemplateResponse(
         str(
             Path(
@@ -34,12 +46,14 @@ async def home(request: Request):
         ),
         {
             "request": request,
+            "all_blogs_dict": blogs_dict,
         },
     )
 
 
 @general_pages_router.get("/contact")
 async def contact(request: Request):
+    blogs_dict = await get_all_blogs_for_nav()
     return templates.TemplateResponse(
         str(
             Path(
@@ -49,21 +63,41 @@ async def contact(request: Request):
         ),
         {
             "request": request,
+            "all_blogs_dict": blogs_dict,
         },
     )
 
 
-@general_pages_router.get("/blog")
-async def blog(request: Request):
+@general_pages_router.get("/blogs/{blog_name:path}")
+async def blog(
+    request: Request,
+    blog_name: str,
+):
+    # Construct the path to the blog file
+    blog_file_path = Path(
+        Path(__file__).parents[2],
+        'templates',
+        'general_pages', 
+        'blogs',
+        f'{blog_name}.html',
+    )
+
+    if not blog_file_path.is_file():
+        raise HTTPException(
+            status_code=404, 
+            detail="Blog file not found"
+        )
+    template_path = Path(
+        'general_pages',
+        'blogs',
+        f'{blog_name}.html',
+    )
+    blogs_dict = await get_all_blogs_for_nav()
     return templates.TemplateResponse(
-        str(
-            Path(
-                'general_pages',
-                'blog.html'
-            )
-        ),
+        str(template_path),
         {
             "request": request,
+            "all_blogs_dict": blogs_dict,
         },
     )
 
@@ -196,7 +230,7 @@ async def submit_email_form(request: Request,
 async def unsubscribe(
     request: Request
 ):
-
+    blogs_dict = await get_all_blogs_for_nav()
     return templates.TemplateResponse(
         str(
             Path(
@@ -206,6 +240,7 @@ async def unsubscribe(
         ),
         {
             "request": request,
+            "all_blogs_dict": blogs_dict,
         },
     )
 
@@ -228,6 +263,7 @@ async def submit_unsubscribe_form(
             df['Email'].str.casefold() != (str(email).casefold())
         ]
         new_df.to_csv(str(data_path), index=False)
+    blogs_dict = await get_all_blogs_for_nav()
     return templates.TemplateResponse(
         str(
             Path(
@@ -237,5 +273,6 @@ async def submit_unsubscribe_form(
         ),
         {
             "request": request,
+            "all_blogs_dict": blogs_dict,
         },
     )
