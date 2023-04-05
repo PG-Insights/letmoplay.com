@@ -1,14 +1,32 @@
-<html>
-    <head>
-        <title>Success!</title>
-    <meta http-equiv="refresh" content="5; url=/">
-    </head>
-    <body>
-        <span style="text-align:center; color:red;">
-        <h1>Stay tuned for more updates to come!</h1>
-        </span>
-        <span style="text-align:center; color:blue;">
-        <p>{{ name }}, you are on the team now!</p>
-        </span>
-    </body>
-</html>
+{% extends "shared/base.html" %}
+
+{% block title %}
+  <title>Let MO Play - Subscribe Success!</title>
+{% endblock %}
+
+{% block header %}
+  <meta http-equiv="refresh" content="5; url=/">
+{% endblock %}
+
+{% block content %}
+  <div class="container-fluid">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h1 class="card-title">Stay tuned for more updates to come!</h1>
+              <p class="card-text">{{ name }}, you are on the team now!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+  
+{% block footer %}
+{% endblock %}
+  
+{% block scripts %}
+{% endblock %}
