@@ -33,7 +33,7 @@
     />
     <meta 
       property="twitter:image" 
-      content="{{ url_for('static', path='img/Potential-Debate-This-Week.jpg') }}"
+      content="{{ request.url_for('static', path='img/Potential-Debate-This-Week.jpg', _external=True) }}"
       alt="Potential Debate Creative"
     />
     {% endblock %}
