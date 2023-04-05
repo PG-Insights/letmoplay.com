@@ -1,12 +1,50 @@
 <!DOCTYPE html>
-<html>
   {% extends "shared/base.html" %}
-
-  <body>
-  {% block header %} 
+  <head>
+    {% block title %}
+      <title>Let MO Play</title>
+    {% endblock %}
+    <meta content="Join the team and help us end Missouri Sports-Betting Prohibition in 2023!" name="description">
+    <meta 
+      property="og:image" 
+      content="{{ url_for('static', path='img/Potential-Debate-This-Week.jpg') }}"
+      alt="Let MO Play round logo"
+    />
+    <meta 
+      property="og:description" 
+      content="Join the team and help us end Missouri Sports-Betting Prohibition in 2023!"
+    />
+    <meta 
+      property="og:title" 
+      content="Let MO Play"
+    />
+    <meta 
+      name="twitter:card" 
+      content="Join the team and help us end Missouri Sports-Betting Prohibition in 2023!"
+    />
+    <meta 
+      property="twitter:url" 
+      content="https://letmoplay.com/"
+    />
+    <meta 
+      property="twitter:title" 
+      content="Let MO Play"
+    />
+    <meta 
+      property="twitter:description" 
+      content="Join the team and help us end Missouri Sports-Betting Prohibition in 2023!"
+    />
+    <meta 
+      property="twitter:image" 
+      content="{{ request.url_for('static', path='img/lmp_round_logo.png') }}"
+      alt="Let MO Play round logo"
+    />
+  </head>
+  {% block header %}  
   {% endblock %}
   
   {% block content %} 
+  <body>
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex justify-cntent-center align-items-center">
       <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
