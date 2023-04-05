@@ -103,6 +103,7 @@ async def blog(
 
 @general_pages_router.get("/form", response_class=HTMLResponse)
 async def form(request: Request):
+    blogs_dict = await get_all_blogs_for_nav()
     return templates.TemplateResponse(
         str(
             Path(
@@ -111,7 +112,9 @@ async def form(request: Request):
             )
         ),
         {
-            "request": request
+            "request": request,
+            "all_blogs_dict": blogs_dict,
+            
         }
     )
 
@@ -151,6 +154,7 @@ async def submit_form(request: Request,
     df.to_csv(str(data_path), index=False)
 
     # Render success template
+    blogs_dict = await get_all_blogs_for_nav()
     return templates.TemplateResponse(
         str(
             Path(
@@ -161,12 +165,14 @@ async def submit_form(request: Request,
         {
             "request": request,
             "name": name,
+            "all_blogs_dict": blogs_dict,
         }
     )
 
 
 @general_pages_router.get("/email-form", response_class=HTMLResponse)
 async def email_form(request: Request):
+    blogs_dict = await get_all_blogs_for_nav()
     return templates.TemplateResponse(
         str(
             Path(
@@ -175,7 +181,8 @@ async def email_form(request: Request):
             )
         ),
         {
-            "request": request
+            "request": request,
+            "all_blogs_dict": blogs_dict,
         }
     )
 
@@ -212,6 +219,7 @@ async def submit_email_form(request: Request,
     df.to_csv(str(data_path), index=False)
 
     # Render success template
+    blogs_dict = await get_all_blogs_for_nav()
     return templates.TemplateResponse(
         str(
             Path(
@@ -222,6 +230,7 @@ async def submit_email_form(request: Request,
         {
             "request": request,
             "name": email,
+            "all_blogs_dict": blogs_dict,
         }
     )
 
