@@ -165,10 +165,10 @@
     
         <!-- ======= Why Us Section ======= -->
         <section id="why-us" class="why-us">
-          <div class="container-fluid">
-            <div class="row">
+          <div class="container">
+            <div class="row g-1">
               <div class="col-lg-5 align-items-stretch position-relative video-box" data-aos="fade-right">
-                <a href="{{ url_for('static', path='img/lmp_ig_reel_v1.mp4') }}" class="glightbox play-btn mb-4"></a>
+                {% include "components/insta-video.html" %}
               </div>
     
               <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch" data-aos="fade-left">
