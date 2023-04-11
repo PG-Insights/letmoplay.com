@@ -2,40 +2,15 @@
 <html>
   {% extends "shared/base.html" %}
     {% block header %}
-    <meta 
-      property="og:image" 
-      content="{{ url_for('static', path='img/mo-senate-descends-into-chaos.jpg') }}"
-      alt="Potential Debate Creative"
-    />
-    <meta 
-      property="og:description" 
-      content="Obstructionist Senator derailed the bid, not unlike in years past."
-    />
-    <meta 
-      property="og:title" 
-      content="Missouri Senate Hearing on Sports Betting Descends into Chaos"
-    />
-    <meta 
-      name="twitter:card" 
-      content="Obstructionist Senator derailed the bid, not unlike in years past."
-    />
-    <meta 
-      property="twitter:url" 
-      content="https://letmoplay.com/blogs/2023/April/Missouri-Senate-Hearing-on-Sports-Betting-Descends-into-Chaos"
-    />
-    <meta 
-      property="twitter:title" 
-      content="Missouri Senate Hearing on Sports Betting Descends into Chaos"
-    />
-    <meta 
-      property="twitter:description" 
-      content="Obstructionist Senator derailed the bid, not unlike in years past."
-    />
-    <meta 
-      property="twitter:image" 
-      content="{{ request.url_for('static', path='img/mo-senate-descends-into-chaos.jpg') }}"
-      alt="Potential Debate Creative"
-    />
+      <meta property="og:image" content="{{ url_for('static', path='img/mo-senate-descends-into-chaos.jpg') }}" />
+      <meta property="og:image:alt" content="Potential Debate Creative" />
+      <meta property="og:description" content="Obstructionist Senator derailed the bid, not unlike in years past." />
+      <meta property="og:title" content="Missouri Senate Hearing on Sports Betting Descends into Chaos" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta property="twitter:url" content="https://letmoplay.com/blogs/2023/April/Missouri-Senate-Hearing-on-Sports-Betting-Descends-into-Chaos" />
+      <meta property="twitter:title" content="Missouri Senate Hearing on Sports Betting Descends into Chaos" />
+      <meta property="twitter:description" content="Obstructionist Senator derailed the bid, not unlike in years past." />
+      <meta property="twitter:image" content="{{ url_for('static', path='img/mo-senate-descends-into-chaos.jpg') }}" />
     {% endblock %}
     
     {% block title %} 
