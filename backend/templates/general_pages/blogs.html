@@ -1,0 +1,171 @@
+{% extends "shared/base.html" %}
+<head>
+  <meta 
+    content="Join the team and help us end Missouri Sports-Betting Prohibition in 2023!" 
+    name="description"
+  />
+  <meta 
+    property="og:image" 
+    content="{{ url_for('static', path='img/Potential-Debate-This-Week.jpg') }}"
+    alt="Let MO Play round logo"
+  />
+  <meta 
+    property="og:description" 
+    content="Join the team and help us end Missouri Sports-Betting Prohibition in 2023!"
+  />
+  <meta 
+    property="og:title" 
+    content="Let MO Play"
+  />
+  <meta 
+    name="twitter:card" 
+    content="summary_large_image"
+  />
+  <meta 
+    property="twitter:url" 
+    content="https://letmoplay.com/"
+  />
+  <meta 
+    property="twitter:site" 
+    content="https://letmoplay.com/"
+  />
+  <meta 
+    property="twitter:title" 
+    content="Let MO Play"
+  />
+  <meta 
+    property="twitter:description" 
+    content="Join the team and help us end Missouri Sports-Betting Prohibition in 2023!"
+  />
+  <meta 
+    property="twitter:image" 
+    content="{{ url_for('static', path='img/lmp_round_logo.png') }}"
+    alt="Let MO Play round logo"
+  />
+</head>
+{% block header %}  
+{% endblock %}
+
+{% block content %} 
+<body>
+  <main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="https://letmoplay.com">Home</a></li>
+          <li><a href="/#">Blogs</a></li>
+        </ol>
+        <h2>Let MO Play Blogs</h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+    
+    <section id="blog" class="blog">
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="col-lg-8 entries">
+          
+          <!-- Begin blog entry -->
+            <article class="entry">
+              <div class="entry-img">
+                <img 
+                  src="{{ url_for('static', path='img/cautious-optimism-for-sports-betting-in-2023.jpg') }}" 
+                  alt="Creative for blog article" 
+                  class="img-fluid"
+                >
+              </div>
+              <h2 class="entry-title">
+                <a href="https://letmoplay.com/blogs/2023/April/Cautious-Optimism-for-Sports-Betting-in-2023">
+                  Cautious Optimism for Sports Betting in 2023
+                </a>
+              </h2>
+              <div class="entry-meta">
+                <ul>
+                  <li class="d-flex align-items-center">
+                    <i class="bi bi-person"></i> 
+                    <a href="https://letmoplay.com/blogs/2023/April/Cautious-Optimism-for-Sports-Betting-in-2023">
+                      Brett K.
+                    </a>
+                  </li>
+                  <li class="d-flex align-items-center">
+                    <i class="bi bi-clock"></i>
+                    <a href="https://letmoplay.com/blogs/2023/April/Cautious-Optimism-for-Sports-Betting-in-2023">
+                      <time datetime="2023-04-15">
+                        April 15th, 2023
+                      </time>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="entry-content">
+                <p>
+                  Sponsor of House Bill 556, Representative Dan Houx, is still holding out hope that a deal can be reached.
+                </p>
+                <div class="read-more">
+                  <a href="https://letmoplay.com/blogs/2023/April/How-Long-Have-We-Been-Placing-Bets">
+                    Read More
+                  </a>
+                </div>
+              </div>
+            </article><!-- End blog entry -->
+          
+          <!-- Begin blog entry -->
+            <article class="entry">
+              <div class="entry-img">
+                <img 
+                  src="{{ url_for('static', path='img/How-Long-Have-We-Been-Placing-Bets.jpg') }}" 
+                  alt="Creative for blog article" 
+                  class="img-fluid"
+                >
+              </div>
+              <h2 class="entry-title">
+                <a href="https://letmoplay.com/blogs/2023/April/How-Long-Have-We-Been-Placing-Bets">
+                  How Long Have We Been Placing Bets?
+                </a>
+              </h2>
+              <div class="entry-meta">
+                <ul>
+                  <li class="d-flex align-items-center">
+                    <i class="bi bi-person"></i> 
+                    <a href="https://letmoplay.com/blogs/2023/April/How-Long-Have-We-Been-Placing-Bets">
+                      Dale L.
+                    </a>
+                  </li>
+                  <li class="d-flex align-items-center">
+                    <i class="bi bi-clock"></i>
+                    <a href="https://letmoplay.com/blogs/2023/April/How-Long-Have-We-Been-Placing-Bets">
+                      <time datetime="2023-04-14">
+                        April 14th, 2023
+                      </time>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="entry-content">
+                <p>
+                  From ancient civilizations to the modern era sports-betting has had massive cultural impact, unforgettable successes, and the future could be bright for Missouri.
+                </p>
+                <div class="read-more">
+                  <a href="https://letmoplay.com/blogs/2023/April/How-Long-Have-We-Been-Placing-Bets">
+                    Read More
+                  </a>
+                </div>
+              </div>
+            </article><!-- End blog entry -->
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+  {% block footer %}
+  {% endblock %}
+
+  {% block scripts %}
+  {% endblock %}
+
+  </body>
+{% endblock %}
+</html>
