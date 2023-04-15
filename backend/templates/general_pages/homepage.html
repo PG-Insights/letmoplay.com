@@ -1,54 +1,57 @@
 
-  {% extends "shared/base.html" %}
-  <head>
-    {% block title %}
-      <title>Let MO Play</title>
-    {% endblock %}
-    <meta content="Join the team and help us end Missouri Sports-Betting Prohibition in 2023!" name="description">
-    <meta 
-      property="og:image" 
-      content="{{ url_for('static', path='img/Potential-Debate-This-Week.jpg') }}"
-      alt="Let MO Play round logo"
-    />
-    <meta 
-      property="og:description" 
-      content="Join the team and help us end Missouri Sports-Betting Prohibition in 2023!"
-    />
-    <meta 
-      property="og:title" 
-      content="Let MO Play"
-    />
-    <meta 
-      name="twitter:card" 
-      content="Join the team and help us end Missouri Sports-Betting Prohibition in 2023!"
-    />
-    <meta 
-      property="twitter:url" 
-      content="https://letmoplay.com/"
-    />
-    <meta 
-      property="twitter:title" 
-      content="Let MO Play"
-    />
-    <meta 
-      property="twitter:description" 
-      content="Join the team and help us end Missouri Sports-Betting Prohibition in 2023!"
-    />
-    <meta 
-      property="twitter:image" 
-      content="{{ request.url_for('static', path='img/lmp_round_logo.png') }}"
-      alt="Let MO Play round logo"
-    />
-  </head>
-  {% block header %}  
-  {% endblock %}
-  
-  {% block content %} 
+{% extends "shared/base.html" %}
+<head>
+  <meta 
+    content="Join the team and help us end Missouri Sports-Betting Prohibition in 2023!" 
+    name="description"
+  />
+  <meta 
+    property="og:image" 
+    content="{{ url_for('static', path='img/Potential-Debate-This-Week.jpg') }}"
+    alt="Let MO Play round logo"
+  />
+  <meta 
+    property="og:description" 
+    content="Join the team and help us end Missouri Sports-Betting Prohibition in 2023!"
+  />
+  <meta 
+    property="og:title" 
+    content="Let MO Play"
+  />
+  <meta 
+    name="twitter:card" 
+    content="summary_large_image"
+  />
+  <meta 
+    property="twitter:url" 
+    content="https://letmoplay.com/"
+  />
+  <meta 
+    property="twitter:site" 
+    content="https://letmoplay.com/"
+  />
+  <meta 
+    property="twitter:title" 
+    content="Let MO Play"
+  />
+  <meta 
+    property="twitter:description" 
+    content="Join the team and help us end Missouri Sports-Betting Prohibition in 2023!"
+  />
+  <meta 
+    property="twitter:image" 
+    content="{{ url_for('static', path='img/lmp_round_logo.png') }}"
+    alt="Let MO Play round logo"
+  />
+</head>
+{% block header %}  
+{% endblock %}
+
+{% block content %} 
   <body>
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex justify-cntent-center align-items-center">
       <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
-    
         <!-- Slide 1 -->
         <div class="carousel-item active">
           <div class="carousel-container">
@@ -57,7 +60,6 @@
             <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
           </div>
         </div>
-    
         <!-- Slide 2 -->
         <div class="carousel-item">
           <div class="carousel-container">
@@ -66,7 +68,6 @@
             <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
           </div>
         </div>
-    
         <!-- Slide 3 -->
         <div class="carousel-item">
           <div class="carousel-container">
@@ -75,196 +76,177 @@
             <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
           </div>
         </div>
-
         <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
           <span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"></span>
         </a>
-    
         <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
           <span class="carousel-control-next-icon bx bx-chevron-right" aria-hidden="true"></span>
         </a>
- 
       </div>
     </section>
     <!-- End Hero -->
-
-      <main id="main">
-    
-        <!-- ======= Icon Boxes Section ======= -->
-        <section id="icon-boxes" class="icon-boxes">
-          <div class="container">
-    
-            <div class="row">
-              <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up">
-                <div class="icon-box">
-                  <div class="icon"><i class="bx bx-group"></i></div>
-                  <h4 class="title"><a href="#subscribe">Join the Team!</a></h4>
-                  <p class="description">Subscribe to the newsletter to stay up-to-date with the latest Missouri sports-betting legislation news and help move Missouri forward in 2023! Just click the logo!</p>
-                </div>
+    <main id="main">
+      <!-- ======= Icon Boxes Section ======= -->
+      <section id="icon-boxes" class="icon-boxes">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up">
+              <div class="icon-box">
+                <div class="icon"><i class="bx bx-group"></i></div>
+                <h4 class="title"><a href="#subscribe">Join the Team!</a></h4>
+                <p class="description">Subscribe to the newsletter to stay up-to-date with the latest Missouri sports-betting legislation news and help move Missouri forward in 2023! Just click the logo!</p>
               </div>
-    
-              <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
-                <div class="icon-box">
-                  <div class="icon"><i class="bx bx-message-detail"></i></div>
-                  <h4 class="title"><a href="#subscribe">Get Involved!</a></h4>
-                  <p class="description">Social Media is a great way to spread the word, but don't be afraid to email your representative! Remember, THEY WORK FOR YOU! Not sure who your state rep is? We've got you covered. Just click this link (or the icon above)!</p>
-                </div>
-              </div>
-    
-              <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
-                <div class="icon-box">
-                  <div class="icon"><i class="bx bx-at"></i></div>
-                  <h4 class="title"><a href="#subscribe">Follow us!</a></h4>
-                  <p class="description">Click the logo to follow us on socials and help spread the word so our lawmakers GET IT DONE in 2023! #LetMOPlay</p>
-                </div>
-              </div>
-    
-              <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
-                <div class="icon-box">
-                  <div class="icon"><i class="bx bx-upvote"></i></div>
-                  <h4 class="title"><a href="#subscribe">Get Off the Bench!</a></h4>
-                  <p class="description">The prohibition has gone on long enough. Join the team and stay up to date on the latest sports-betting news.</p>
-                </div>
-              </div>
-    
             </div>
-    
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
+              <div class="icon-box">
+                <div class="icon"><i class="bx bx-message-detail"></i></div>
+                <h4 class="title"><a href="#subscribe">Get Involved!</a></h4>
+                <p class="description">Social Media is a great way to spread the word, but don't be afraid to email your representative! Remember, THEY WORK FOR YOU! Not sure who your state rep is? We've got you covered. Just click this link (or the icon above)!</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
+              <div class="icon-box">
+                <div class="icon"><i class="bx bx-at"></i></div>
+                <h4 class="title"><a href="#subscribe">Follow us!</a></h4>
+                <p class="description">Click the logo to follow us on socials and help spread the word so our lawmakers GET IT DONE in 2023! #LetMOPlay</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
+              <div class="icon-box">
+                <div class="icon"><i class="bx bx-upvote"></i></div>
+                <h4 class="title"><a href="#subscribe">Get Off the Bench!</a></h4>
+                <p class="description">The prohibition has gone on long enough. Join the team and stay up to date on the latest sports-betting news.</p>
+              </div>
+            </div>
           </div>
-        </section><!-- End Icon Boxes Section -->
-    
-        <!-- ======= About Us Section ======= -->
-        <section id="about" class="about">
-          <div class="container" data-aos="fade-up">
-    
-            <div class="section-title">
-              <h2>Who are we?</h2>
-              <p>At Let MO Play, we are dedicated to raising awareness about the benefits of legalizing sports betting in Missouri. Our business is committed to promoting local businesses and highlighting the positive impacts that legal sports betting can have on the state's economy.</p>
+        </div>
+      </section><!-- End Icon Boxes Section -->
+      <!-- ======= About Us Section ======= -->
+      <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title">
+            <h2>Who are we?</h2>
+            <p>At Let MO Play, we are dedicated to raising awareness about the benefits of legalizing sports betting in Missouri. Our business is committed to promoting local businesses and highlighting the positive impacts that legal sports betting can have on the state's economy.</p>
+          </div>
+          <div class="row content">
+            <div class="col-lg-6">
+              <p>
+                As lifelong residents of Missouri, we are deeply connected to our state and committed to promoting policies that benefit our communities. We believe that legalizing sports betting can provide a new means of revenue for the state and create new job opportunities for residents.
+              </p>
+              <ul>
+                <li><i class="ri-check-double-line"></i> We use social media to connect with residents and politicians in Missouri to create a dialogue about the benefits for local businesses and the state's economy.</li>
+                <li><i class="ri-check-double-line"></i> Let MO Play collaborates with local businesses that can benefit from legal sports betting, such as sports bars and restaurants.</li>
+                <li><i class="ri-check-double-line"></i> We prioritize responsible betting. Resources such as National Council on Problem Gambling and Gambler's Anonymous are available if needed.</li>
+              </ul>
             </div>
-    
-            <div class="row content">
-              <div class="col-lg-6">
+            <div class="col-lg-6 pt-4 pt-lg-0">
+              <p>
+                Let MO Play is committed to promoting responsible gambling and increasing sports engagement to provide a boost to local economies. Plus, legalization can help combat illegal sports betting and match-fixing, ensuring the integrity of sports competitions. Don't miss out on the chance to be a part of this exciting movement!
+              </p>
+              <a href="#" class="btn-learn-more">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </section><!-- End About Us Section -->
+
+      <!-- ======= Why Us Section ======= -->
+      <section id="why-us" class="why-us">
+        <div class="container">
+          <div class="row g-1">
+            <div class="col-lg-5 align-items-stretch position-relative video-box" data-aos="fade-right">
+              {% include "components/insta-video.html" %}
+            </div>
+            <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch" data-aos="fade-left">
+              <div class="content">
+                <h3>Missourians are <strong>losing millions in tax dollars</strong></h3>
                 <p>
-                  As lifelong residents of Missouri, we are deeply connected to our state and committed to promoting policies that benefit our communities. We believe that legalizing sports betting can provide a new means of revenue for the state and create new job opportunities for residents.
+                  According to the American Gaming Association, the total revenue generated by legal sports betting in the United States in 2020 was $1.5 billion. Of this amount, state and local governments collected approximately $245 million in tax revenue.
                 </p>
+              </div>
+              <div class="accordion-list">
                 <ul>
-                  <li><i class="ri-check-double-line"></i> We use social media to connect with residents and politicians in Missouri to create a dialogue about the benefits for local businesses and the state's economy.</li>
-                  <li><i class="ri-check-double-line"></i> Let MO Play collaborates with local businesses that can benefit from legal sports betting, such as sports bars and restaurants.</li>
-                  <li><i class="ri-check-double-line"></i> We prioritize responsible betting. Resources such as National Council on Problem Gambling and Gambler's Anonymous are available if needed.</li>
+                  <li data-aos="fade-up" data-aos-delay="100">
+                    <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-1"><span>01</span> What have other states done? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                    <div id="accordion-list-1" class="collapse show" data-bs-parent=".accordion-list">
+                      <p>
+                        In 2020, the state of Colorado collected $3.4 million in tax revenue from sports betting in just its first month of operation and Missouri has already broken one Colorado record after legalization.
+                      </p>
+                    </div>
+                  </li>
+                  <li data-aos="fade-up" data-aos-delay="200">
+                    <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed"><span>02</span> Who benefits from legalization? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                    <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
+                      <p>
+                        The answer is small businesses and residents. Local bars and restaurants that offer sports betting services can attract customers who may not have otherwise visited their establishments.</p>
+                    </div>
+                  </li>
+                  <li data-aos="fade-up" data-aos-delay="300">
+                    <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed"><span>03</span> How much can we gain? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                    <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
+                      <p>
+                        Atlantic City saw a 20% increase in revenue from hotel room rentals and a 14% increase in revenue from food and beverage sales. Ending prohibition will create jobs in a variety of sectors, including casinos, sportsbooks, and technology companies that provide software and services to the industry with the potential to create more than 200,000 jobs in the United States.
+                      </p>
+                    </div>
+                  </li>
                 </ul>
               </div>
-              <div class="col-lg-6 pt-4 pt-lg-0">
-                <p>
-                  Let MO Play is committed to promoting responsible gambling and increasing sports engagement to provide a boost to local economies. Plus, legalization can help combat illegal sports betting and match-fixing, ensuring the integrity of sports competitions. Don't miss out on the chance to be a part of this exciting movement!
-                </p>
-                <a href="#" class="btn-learn-more">Learn More</a>
-              </div>
             </div>
-    
           </div>
-        </section><!-- End About Us Section -->
-    
-        <!-- ======= Why Us Section ======= -->
-        <section id="why-us" class="why-us">
-          <div class="container">
-            <div class="row g-1">
-              <div class="col-lg-5 align-items-stretch position-relative video-box" data-aos="fade-right">
-                {% include "components/insta-video.html" %}
-              </div>
-    
-              <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch" data-aos="fade-left">
-    
-                <div class="content">
-                  <h3>Missourians are <strong>losing millions in tax dollars</strong></h3>
-                  <p>
-                    According to the American Gaming Association, the total revenue generated by legal sports betting in the United States in 2020 was $1.5 billion. Of this amount, state and local governments collected approximately $245 million in tax revenue.
-                  </p>
+        </div>
+      </section><!-- End Why Us Section -->
+
+      <!-- ======= Cta Section ======= -->
+      <section id="cta" class="cta">
+        <div class="container">
+          <div class="row" data-aos="zoom-in">
+            <div class="col-lg-9 text-center text-lg-start">
+              <h3>Join the Team!</h3>
+              <p> Subscribe to the newsletter to stay up to date with the latest in sports-betting legislation news and move Missouri forward in 2023!</p>
+            </div>
+            <div class="col-lg-3 cta-btn-container text-center">
+              <a class="cta-btn align-middle" href="#subscribe">Join the Team</a>
+            </div>
+          </div>
+        </div>
+      </section><!-- End Cta Section -->
+   
+      <!-- ======= Team Section ======= -->
+      <section id="team" class="team section-bg">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title">
+            <h2>Stakeholders</h2>
+          </div>
+          <div class="row g-4">
+            <div class="col g-4 col-lg-6" data-aos="fade-up" data-aos-delay="200">
+              <div class="member d-flex align-items-start">
+                <div class="pic">
+                  <img src="https://www.senate.mo.gov/WebPhotos/SenatorPortraits/Luetkemeyer34.jpg" class="img-fluid" alt="Tony Luetkemeyer Missouri Senate">
                 </div>
-                <div class="accordion-list">
-                  <ul>
-                    <li data-aos="fade-up" data-aos-delay="100">
-                      <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-1"><span>01</span> What have other states done? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                      <div id="accordion-list-1" class="collapse show" data-bs-parent=".accordion-list">
-                        <p>
-                          In 2020, the state of Colorado collected $3.4 million in tax revenue from sports betting in just its first month of operation and Missouri has already broken one Colorado record after legalization.
-                        </p>
-                      </div>
-                    </li>
-    
-                    <li data-aos="fade-up" data-aos-delay="200">
-                      <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed"><span>02</span> Who benefits from legalization? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                      <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
-                        <p>
-                            The answer is small businesses and residents. Local bars and restaurants that offer sports betting services can attract customers who may not have otherwise visited their establishments.</p>
-                      </div>
-                    </li>
-    
-                    <li data-aos="fade-up" data-aos-delay="300">
-                      <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed"><span>03</span> How much can we gain? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                      <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
-                        <p>
-                          Atlantic City saw a 20% increase in revenue from hotel room rentals and a 14% increase in revenue from food and beverage sales. Ending prohibition will create jobs in a variety of sectors, including casinos, sportsbooks, and technology companies that provide software and services to the industry with the potential to create more than 200,000 jobs in the United States.
-                        </p>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section><!-- End Why Us Section -->
-    
-        <!-- ======= Cta Section ======= -->
-        <section id="cta" class="cta">
-          <div class="container">
-    
-            <div class="row" data-aos="zoom-in">
-              <div class="col-lg-9 text-center text-lg-start">
-                <h3>Join the Team!</h3>
-                <p> Subscribe to the newsletter to stay up to date with the latest in sports-betting legislation news and move Missouri forward in 2023!</p>
-              </div>
-              <div class="col-lg-3 cta-btn-container text-center">
-                <a class="cta-btn align-middle" href="#subscribe">Join the Team</a>
-              </div>
-            </div>
-    
-          </div>
-        </section><!-- End Cta Section -->
-       
-        <!-- ======= Team Section ======= -->
-        <section id="team" class="team section-bg">
-          <div class="container" data-aos="fade-up">
-            <div class="section-title">
-              <h2>Stakeholders</h2>
-            </div>
-            <div class="row g-4">
-              <div class="col g-4 col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="member d-flex align-items-start">
-                  <div class="pic"><img src="https://www.senate.mo.gov/WebPhotos/SenatorPortraits/Luetkemeyer34.jpg" class="img-fluid" alt="Tony Luetkemeyer Missouri Senate"></div>
-                  <div class="member-info">
-                    <h4>Tony Luetkemeyer</h4>
-                    <span>Missouri Senate</span>
-                    <p>"... As long as one (bill) reaches the governor’s desk, I will be satisfied"</p>
-                    <div class="social">
-                      <a href="https://twitter.com/TonyForMissouri"><i class="ri-twitter-fill"></i></a>
-                      <a href="https://www.facebook.com/TonyForMissouri/"><i class="ri-facebook-fill"></i></a>
-                      <a href="https://www.senate.mo.gov/DistrictWebApplication/Contact?DistrictNumber=34">
-                        <i class="bi bi-envelope-at-fill"></i></a>
-                    </div>
+                <div class="member-info">
+                  <h4>Tony Luetkemeyer</h4>
+                  <span>Missouri Senate</span>
+                  <p>"... As long as one (bill) reaches the governor’s desk, I will be satisfied"</p>
+                  <div class="social">
+                    <a href="https://twitter.com/TonyForMissouri"><i class="ri-twitter-fill"></i></a>
+                    <a href="https://www.facebook.com/TonyForMissouri/"><i class="ri-facebook-fill"></i></a>
+                    <a href="https://www.senate.mo.gov/DistrictWebApplication/Contact?DistrictNumber=34">
+                      <i class="bi bi-envelope-at-fill"></i></a>
                   </div>
                 </div>
               </div>
-              <div class="col g-4 col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="member d-flex align-items-start">
-                  <div class="pic"><img src="https://www.senate.mo.gov/WebPhotos/SenatorPortraits/Hoskins21.jpg" class="img-fluid " alt="Denny Hoskins Missouri Senate"></div>
-                  <div class="member-info">
-                    <h4>Denny Hoskins</h4>
-                    <span>Missouri Senate</span>
-                    <p>“I think nothing is off the table and that we can come to some sort of compromise"</p>
-                    <div class="social">
-                      <a href="https://twitter.com/DLHoskins"><i class="ri-twitter-fill"></i></a>
-                      <a href="https://www.facebook.com/hoskinsformissouri/"><i class="ri-facebook-fill"></i></a>
-                      <a href="https://www.senate.mo.gov/DistrictWebApplication/Contact?DistrictNumber=21">
-                        <i class="bi bi-envelope-at-fill"></i></a>
+            </div>
+            <div class="col g-4 col-lg-6" data-aos="fade-up" data-aos-delay="200">
+              <div class="member d-flex align-items-start">
+                <div class="pic"><img src="https://www.senate.mo.gov/WebPhotos/SenatorPortraits/Hoskins21.jpg" class="img-fluid " alt="Denny Hoskins Missouri Senate"></div>
+                <div class="member-info">
+                  <h4>Denny Hoskins</h4>
+                  <span>Missouri Senate</span>
+                  <p>“I think nothing is off the table and that we can come to some sort of compromise"</p>
+                  <div class="social">
+                    <a href="https://twitter.com/DLHoskins"><i class="ri-twitter-fill"></i></a>
+                    <a href="https://www.facebook.com/hoskinsformissouri/"><i class="ri-facebook-fill"></i></a>
+                    <a href="https://www.senate.mo.gov/DistrictWebApplication/Contact?DistrictNumber=21">
+                      <i class="bi bi-envelope-at-fill"></i></a>
                     </div>
                   </div>
                 </div>
@@ -273,19 +255,17 @@
           </div>
         </div>
       </section><!-- End Team Section -->
-
-      {% include "components/form.html" %}
+      
+    {% include "components/form.html" %}
     
     </main><!-- End #main -->
-      
-    {% endblock %}
-    
-    {% block footer %}
-    {% endblock %}
-    
-    {% block scripts %}
-    {% endblock %}
-    
-  </body>
 
+  {% block footer %}
+  {% endblock %}
+
+  {% block scripts %}
+  {% endblock %}
+
+  </body>
+{% endblock %}
 </html>
