@@ -185,8 +185,8 @@ async def submit_form(request: Request,
             axis=0
         ).drop_duplicates(
             subset=[
-                'email', 
-                'message'
+                'Email', 
+                'Message'
             ],
             ignore_index=True,
         )
@@ -259,8 +259,8 @@ async def submit_email_form(request: Request,
             axis=0
         ).drop_duplicates(
             subset=[
-                'email', 
-                'message'
+                'Email', 
+                'Message'
             ],
             ignore_index=True,
         )
