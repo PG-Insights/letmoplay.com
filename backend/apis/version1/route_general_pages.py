@@ -10,10 +10,14 @@ import os
 import pandas as pd
 from datetime import datetime
 from pathlib import Path
-from fastapi import APIRouter, Request, Form, HTTPException
+from fastapi import APIRouter, Request, Form, HTTPException, Depends
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
+from sqlalchemy.orm import Session
 from get_all_blogs_dict import get_all_blogs_dict
+from route_subscribers import create_subscriber
+from schemas.subscribers import SubscriberCreate
+from db.session import get_db
 
 templates_dir = Path(
     Path(__file__).parents[2],
@@ -141,7 +145,8 @@ async def submit_form(request: Request,
                       name: str = Form(...),
                       email: str = Form(...),
                       subject: str = Form(...),
-                      message: str = Form(...)
+                      message: str = Form(...),
+                      db: Session = Depends(get_db),
                       ) -> templates.TemplateResponse:
     # Create DataFrame
     data = {
@@ -169,6 +174,9 @@ async def submit_form(request: Request,
         )
     # Save to CSV file
     df.to_csv(str(data_path), index=False)
+    
+    subscriber_data = SubscriberCreate(email=email)
+    create_subscriber(subscriber=subscriber_data, db=db)
 
     # Render success template
     blogs_dict = await get_all_blogs_for_nav()
@@ -207,6 +215,7 @@ async def email_form(request: Request):
 @general_pages_router.post("/submit-email", response_model=None)
 async def submit_email_form(request: Request,
                             email: str = Form(...),
+                            db: Session = Depends(get_db),
                             ) -> templates.TemplateResponse:
     # Create DataFrame
     data = {
@@ -234,9 +243,12 @@ async def submit_email_form(request: Request,
         )
     # Save to CSV file
     df.to_csv(str(data_path), index=False)
-
     # Render success template
     blogs_dict = await get_all_blogs_for_nav()
+
+    subscriber_data = SubscriberCreate(email=email)
+    create_subscriber(subscriber=subscriber_data, db=db)
+    
     return templates.TemplateResponse(
         str(
             Path(
