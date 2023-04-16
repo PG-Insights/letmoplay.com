@@ -183,15 +183,15 @@ async def submit_form(request: Request,
                 df.copy()
             ],
             axis=0
-        ).drop_duplicates(
-            subset=[
-                'Email', 
-                'Message'
-            ],
-            ignore_index=True,
         )
+        
     # Save to CSV file
-    df.to_csv(
+    df.copy().drop_duplicates(
+        subset=[
+            'Email', 
+        ],
+        ignore_index=True,
+    ).to_csv(
         str(data_path), 
         index=False
     )
@@ -257,16 +257,17 @@ async def submit_email_form(request: Request,
                 df.copy()
             ],
             axis=0
-        ).drop_duplicates(
-            subset=[
-                'Email', 
-                'Message'
-            ],
-            ignore_index=True,
         )
     # Save to CSV file
-    df.to_csv(str(data_path), index=False)
-
+    df.copy().drop_duplicates(
+        subset=[
+            'Email', 
+        ],
+        ignore_index=True,
+    ).to_csv(
+        str(data_path), 
+        index=False
+    )
     # Render success template
     blogs_dict = await get_all_blogs_for_nav()
     return templates.TemplateResponse(
