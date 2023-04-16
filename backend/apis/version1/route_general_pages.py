@@ -185,13 +185,17 @@ async def submit_form(request: Request,
             axis=0
         )
         
-    # Save to CSV file
-    df.copy().drop_duplicates(
+    # Drop duplicates
+    df = df.copy().drop_duplicates(
         subset=[
             'Email', 
+            'Message',
         ],
         ignore_index=True,
-    ).to_csv(
+    )
+    
+    # Save to CSV file
+    df.to_csv(
         str(data_path), 
         index=False
     )
@@ -258,13 +262,18 @@ async def submit_email_form(request: Request,
             ],
             axis=0
         )
-    # Save to CSV file
-    df.copy().drop_duplicates(
+        
+    # Drop duplicates
+    df = df.copy().drop_duplicates(
         subset=[
             'Email', 
+            'Message',
         ],
         ignore_index=True,
-    ).to_csv(
+    )
+    
+    # Save to CSV file
+    df.to_csv(
         str(data_path), 
         index=False
     )
