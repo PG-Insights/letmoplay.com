@@ -10,29 +10,43 @@
 {% endblock %}
 
 {% block content %} 
-<main class="container giveaway">
-  <section class="d-flex justify-cntent-center align-items-center">
-    <div class="container container-md wrapper">
+<main class="container-fluid giveaway">
+  <section class="d-flex justify-content-center align-items-center">
+    <div class="container container-md wrapper text-center">
       <div class="align-items-center">
         <h1>
-          ENTER TO WIN TWO TICKETS
+          ENTER TO WIN<br>2 TICKETS
         </h1>
+        <div class="container align-items-center text-center">
+          <h4>
+            <div class="col-lg-9 col-md-6 align-items-center text-center mx-auto">
+              To see STL CITY SC take on Omaha Union in the US
+              OPEN CUP on April 25th, 2023!
+            </div>
+          </h4>
+        </div>
+      </div>
+      <div class="container text-center">
+        <form action="/submit-email" method="post" class="col align-items-center justify-content-center g-0">
+          <div class="col-lg-7 col-md-5 g-0 mx-auto">
+            <input type="email" name="email" id="email" placeholder="Email Address" class="form-control giveaway-btn-container">
+          </div>
+          <div class="col g-0">  
+            <input type="submit" value="Submit" class="giveaway-btn">
+          </div>
+        </form>
+      </div>
+      <div class="container col-lg-8 col-md-5 mx-auto">
         <p>
-          To see STL CITY SC take on Omaha Union in the US<br>
-          OPEN CUP on April 25th, 2023!
-        </p>
-        <caption>
-          By subscribing, you are confirming that you agree to the letmoplay.com 
+          By entering the giveaway, you are confirming that you agree to the letmoplay.com 
           <a href="https://letmoplay.com/privacy-policy"> Privacy Policy</a>
           and <a href="https://letmoplay.com/user-agreement">User Agreement</a>
           , which includes, but is not limited to, periodic correspondence and occasional personalized ads. 
           You are also confirming that you are 21 years of age or older.
-        </caption>
-        <form action="/submit-email" method="post">
-          <input type="email" name="email" id="email" placeholder="Email Address">
-            <label for="email">Email address</label>
-          <input type="submit" value="Subscribe">
-        </form>
+          If you or someone you know is struggling with problem gambling, please seek help immediately. 
+          Resources and support are available, such as the National Problem Gambling Helpline (1-800-522-4700) or your local support organizations. 
+          Remember to bet responsibly and within your limits.
+        </p>
       </div>  
     </div>
   </section>
