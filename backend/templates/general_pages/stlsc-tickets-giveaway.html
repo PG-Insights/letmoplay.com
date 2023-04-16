@@ -1,0 +1,47 @@
+{% extends "shared/base.html" %}
+
+{% block header %} 
+<link 
+  rel="stylesheet" 
+  href="https://cdn.jsdelivr.net/npm/fonts-raleway@0.0.4/css/raleway.min.css" 
+  integrity="sha256-bumjII09D4oX+jbH2DbDfvFmfjux5v/KEshhsJayorE=" 
+  crossorigin="anonymous"
+>
+{% endblock %}
+
+{% block content %} 
+<main class="container giveaway">
+  <section class="d-flex justify-cntent-center align-items-center">
+    <div class="container container-md wrapper">
+      <div class="align-items-center">
+        <h1>
+          ENTER TO WIN TWO TICKETS
+        </h1>
+        <p>
+          To see STL CITY SC take on Omaha Union in the US<br>
+          OPEN CUP on April 25th, 2023!
+        </p>
+        <caption>
+          By subscribing, you are confirming that you agree to the letmoplay.com 
+          <a href="https://letmoplay.com/privacy-policy"> Privacy Policy</a>
+          and <a href="https://letmoplay.com/user-agreement">User Agreement</a>
+          , which includes, but is not limited to, periodic correspondence and occasional personalized ads. 
+          You are also confirming that you are 21 years of age or older.
+        </caption>
+        <form action="/submit-email" method="post">
+          <input type="email" name="email" id="email" placeholder="Email Address">
+            <label for="email">Email address</label>
+          <input type="submit" value="Subscribe">
+        </form>
+      </div>  
+    </div>
+  </section>
+</main>
+
+
+{% endblock %} 
+{% block footer %}
+{% endblock %}
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/fonts-raleway@0.0.4/Gulpfile.min.js"></script>
+{% endblock %}

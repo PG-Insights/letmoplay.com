@@ -2420,3 +2420,57 @@ section {
 #footer .credits a {
   color: #f6b024;
 }
+
+
+/*--------------------------------------------------------------
+# Giveaway Landing Page
+--------------------------------------------------------------*/
+.giveaway {
+  background: linear-gradient(rgba(5, 74, 133, 0.8), rgba(5, 74, 133, 0.9)), url("../img/slcsc_tix_giveaway_bg.svg") no-repeat center center;
+  background-size: cover;
+  padding: 120px 0;
+}
+
+.giveaway h1 {
+  font-family: "Raleway Heavy", sans-serif;
+  color: #fff;
+  font-weight: 700;
+}
+
+.giveaway p {
+  color: #fff;
+}
+
+.giveaway .giveaway-btn {
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  padding: 8px 26px;
+  border-radius: 2px;
+  transition: 0.5s;
+  margin: 10px;
+  border-radius: 50px;
+  border: 2px solid #f6b024;
+  color: #fff;
+}
+
+.giveaway .giveaway-btn:hover {
+  background: #f6b024;
+}
+
+@media (max-width: 1024px) {
+  .giveaway {
+    background-attachment: scroll;
+  }
+}
+
+@media (min-width: 769px) {
+  .giveaway .giveaway-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}

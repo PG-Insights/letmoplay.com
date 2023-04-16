@@ -68,6 +68,23 @@ async def blogs(request: Request):
     )
 
 
+@general_pages_router.get("/stlsc-tickets-giveaway")
+async def giveaway_landing(request: Request):
+    blogs_dict = await get_all_blogs_for_nav()
+    return templates.TemplateResponse(
+        str(
+            Path(
+                'general_pages',
+                'stlsc-tickets-giveaway.html'
+            )
+        ),
+        {
+            "request": request,
+            "all_blogs_dict": blogs_dict,
+        },
+    )
+
+
 @general_pages_router.get("/contact")
 async def contact(request: Request):
     blogs_dict = await get_all_blogs_for_nav()
