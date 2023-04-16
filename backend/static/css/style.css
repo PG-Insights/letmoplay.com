@@ -2427,7 +2427,7 @@ section {
 --------------------------------------------------------------*/
 
 .giveaway {
-  background: linear-gradient(rgba(5, 74, 133, 1), rgba(5, 74, 133, 0.7)), url("../img/slcsc_tix_giveaway_bg.svg") no-repeat center center;
+  background: linear-gradient(rgba(5, 74, 133, .8), rgba(5, 74, 133, 0.7)), url("../img/slcsc_tix_giveaway_bg.svg") no-repeat center center;
   background-size: cover;
   padding: 120px 0;
 }
