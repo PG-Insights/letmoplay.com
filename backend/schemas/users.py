@@ -6,7 +6,6 @@ Created on Fri Mar 10 20:51:36 2023
 @author: dale
 """
 
-from typing import Optional
 from pydantic import BaseModel,EmailStr
 
 
