@@ -7,6 +7,48 @@
   integrity="sha256-bumjII09D4oX+jbH2DbDfvFmfjux5v/KEshhsJayorE=" 
   crossorigin="anonymous"
 >
+<meta 
+  property="og:image" 
+  content="{{ url_for('static', path='img/lmp_round_logo.png') }}"
+  alt="Let MO Play Circle Logo"
+/>
+<meta 
+  content="Win 2 tickets to see STL City SC take on Omaha Union in the US OPEN CUP on April 25th, 2023! Giveaway brought to you by Let MO Play & Ball Watching: A St. Louis CITY SC Podcast" 
+  name="description"
+/>
+<meta 
+  property="og:description" 
+  content="Win 2 tickets to see STL City SC take on Omaha Union in the US OPEN CUP on April 25th, 2023! Giveaway brought to you by Let MO Play & Ball Watching: A St. Louis CITY SC Podcast"
+/>
+<meta 
+  property="og:title" 
+  content="Win 2 Tickets to see STL City SC on April 25th in St. Louis!"
+/>
+<meta 
+  name="twitter:card" 
+  content="summary_large_image"
+/>
+<meta 
+  property="twitter:url" 
+  content="https://letmoplay.com/stlsc-tickets-giveaway"
+/>
+<meta 
+  property="twitter:title" 
+  content="Win 2 Tickets to see STL City SC on April 25th in St. Louis!"
+/>
+<meta 
+  property="twitter:description" 
+  content="Win 2 tickets to see STL City SC take on Omaha Union in the US OPEN CUP on April 25th, 2023! Giveaway brought to you by Let MO Play & Ball Watching: A St. Louis CITY SC Podcast"
+/>
+<meta 
+  name="twitter:site" 
+  content="https://letmoplay.com/"
+/>
+<meta 
+  property="twitter:image" 
+  content="{{ url_for('static', path='img/lmp_round_logo.png') }}"
+  alt="Let MO Play Round Logo"
+/>
 {% endblock %}
 
 {% block content %} 
@@ -35,6 +77,18 @@
             <input type="submit" value="Submit" class="giveaway-btn">
           </div>
         </form>
+      </div>
+      <div class="container" style="padding-top:1rem">
+      <h4>
+        Giveaway brought to you by 
+        <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://letmoplay.com">
+          <b>Let MO Play</b>
+        </a>
+        & 
+        <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/BallWatchingSTL">
+          <b>Ball Watching: A St. Louis CITY SC Podcast</b>
+        </a>
+      </h4>
       </div>
       <div class="container col-lg-8 col-md-5 mx-auto">
         <p>

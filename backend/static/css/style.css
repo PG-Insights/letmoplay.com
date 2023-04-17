@@ -2441,6 +2441,16 @@ section {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
+.giveaway h2 {
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(2.5rem, 3.5vw, 50px);
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
 .giveaway h4 {
   font-family: "Raleway", sans-serif;
   font-size: clamp(1.5rem, 2.5vw, 30px);
