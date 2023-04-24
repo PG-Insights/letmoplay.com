@@ -72,6 +72,23 @@ async def blogs(request: Request):
     )
 
 
+@general_pages_router.get("/stlsc-tickets-giveaway")
+async def giveaway_landing(request: Request):
+    blogs_dict = await get_all_blogs_for_nav()
+    return templates.TemplateResponse(
+        str(
+            Path(
+                'general_pages',
+                'stlsc-tickets-giveaway.html'
+            )
+        ),
+        {
+            "request": request,
+            "all_blogs_dict": blogs_dict,
+        },
+    )
+
+
 @general_pages_router.get("/contact")
 async def contact(request: Request):
     blogs_dict = await get_all_blogs_for_nav()
@@ -172,6 +189,16 @@ async def submit_form(request: Request,
             ],
             axis=0
         )
+        
+    # Drop duplicates
+    df = df.copy().drop_duplicates(
+        subset=[
+            'Email', 
+            'Message',
+        ],
+        ignore_index=True,
+    )
+    
     # Save to CSV file
     df.to_csv(str(data_path), index=False)
     
@@ -241,8 +268,19 @@ async def submit_email_form(request: Request,
             ],
             axis=0
         )
+        
+    # Drop duplicates
+    df = df.copy().drop_duplicates(
+        subset=[
+            'Email', 
+            'Message',
+        ],
+        ignore_index=True,
+    )
+    
     # Save to CSV file
     df.to_csv(str(data_path), index=False)
+
     # Render success template
     blogs_dict = await get_all_blogs_for_nav()
 
