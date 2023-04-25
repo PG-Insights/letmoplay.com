@@ -10,8 +10,8 @@ from fastapi import APIRouter
 from sqlalchemy.orm import Session
 from fastapi import Depends
 
-from schemas.subscribers import SubscriberCreate, ShowSubscriber
 from db.session import get_db
+from schemas.subscribers import SubscriberCreate, ShowSubscriber
 from db.repository.subscribers import create_new_subscriber
 from db.models.subscribers import Subscriber
 
@@ -33,10 +33,10 @@ def create_subscriber(
 def remove_subscriber(subscriber_email: str,
                       db: Session = Depends(get_db)
                       ):
-    # Query the database to find the subscriber with the given email
-    subscriber = db.query(Subscriber).filter(Subscriber.email == subscriber_email).first()
+    subscriber = db.query(
+        Subscriber
+    ).filter(Subscriber.email == subscriber_email).first()
 
-    # If the subscriber is found, delete the record and commit the changes
     if subscriber:
         db.delete(subscriber)
         db.commit()
