@@ -15,7 +15,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 from get_all_blogs_dict import get_all_blogs_dict
-from route_subscribers import create_subscriber
+from route_subscribers import create_subscriber, remove_subscriber
 from schemas.subscribers import SubscriberCreate
 from db.session import get_db
 
@@ -325,6 +325,7 @@ async def unsubscribe(
 async def submit_unsubscribe_form(
     request: Request,
     email: str = Form(...),
+    db: Session = Depends(get_db)
 ) -> templates.TemplateResponse:
     data_path = Path(
         '.',
@@ -339,6 +340,7 @@ async def submit_unsubscribe_form(
             df['Email'].str.casefold() != (str(email).casefold())
         ]
         new_df.to_csv(str(data_path), index=False)
+    remove_subscriber(email, db=db)
     blogs_dict = await get_all_blogs_for_nav()
     return templates.TemplateResponse(
         str(

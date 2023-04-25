@@ -27,3 +27,16 @@ def create_subscriber(
         db=db
     )
     return subscriber
+
+
+def remove_subscriber(subscriber_email: str,
+                      db: Session = Depends(get_db)
+                      ):
+    # Query the database to find the subscriber with the given email
+    subscriber = db.query(Subscriber).filter(Subscriber.email == subscriber_email).first()
+
+    # If the subscriber is found, delete the record and commit the changes
+    if subscriber:
+        db.delete(subscriber)
+        db.commit()
+        return {"email": subscriber_email}
