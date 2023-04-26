@@ -7,7 +7,6 @@ Created on Sat Apr 15 20:06:47 2023
 """
 
 from sqlalchemy.orm import Session
-from psycopg2.errors import UniqueViolation
 from schemas.subscribers import SubscriberCreate
 from db.models.subscribers import Subscriber
 from datetime import datetime
@@ -23,7 +22,7 @@ def create_new_subscriber(
     )
     try:
         db.add(subscriber)
-    except UniqueViolation:
+    except:
         db.rollback()
     else:
         db.commit()
