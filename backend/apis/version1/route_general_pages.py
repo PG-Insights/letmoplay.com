@@ -54,6 +54,38 @@ async def home(request: Request):
         },
     )
 
+@general_pages_router.get("/privacy-policy")
+async def privacy_policy(request: Request):
+    blogs_dict = await get_all_blogs_for_nav()
+    return templates.TemplateResponse(
+        str(
+            Path(
+                'general_pages',
+                'privacy-policy.html'
+            )
+        ),
+        {
+            "request": request,
+            "all_blogs_dict": blogs_dict,
+        },
+    )
+
+@general_pages_router.get("/user-agreement")
+async def terms_of_use(request: Request):
+    blogs_dict = await get_all_blogs_for_nav()
+    return templates.TemplateResponse(
+        str(
+            Path(
+                'general_pages',
+                'user-agreement.html'
+            )
+        ),
+        {
+            "request": request,
+            "all_blogs_dict": blogs_dict,
+        },
+    )
+
 
 @general_pages_router.get("/blogs")
 async def blogs(request: Request):
