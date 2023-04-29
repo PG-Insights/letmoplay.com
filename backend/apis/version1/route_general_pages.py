@@ -72,14 +72,14 @@ async def blogs(request: Request):
     )
 
 
-@general_pages_router.get("/stlsc-tickets-giveaway")
+@general_pages_router.get("/derby-giveaway-with-macs-downtown")
 async def giveaway_landing(request: Request):
     blogs_dict = await get_all_blogs_for_nav()
     return templates.TemplateResponse(
         str(
             Path(
                 'general_pages',
-                'stlsc-tickets-giveaway.html'
+                'derby-giveaway-with-macs-downtown.html'
             )
         ),
         {
