@@ -2424,10 +2424,11 @@ section {
 
 /*--------------------------------------------------------------
 # Giveaway Landing Page
+# linear-gradient(rgba(5, 74, 133, .8), rgba(5, 74, 133, 0.7)),
 --------------------------------------------------------------*/
 
 .giveaway {
-  background: linear-gradient(rgba(5, 74, 133, .8), rgba(5, 74, 133, 0.7)), url("../img/slcsc_tix_giveaway_bg.svg") no-repeat center center;
+  background: url("../img/lmp_macs_derby_bg.svg") no-repeat center center;
   background-size: cover;
   padding: 120px 0;
 }
@@ -2483,6 +2484,11 @@ section {
   border: 2px solid #f6b024;
   background: transparent;
   color: #fff;
+}
+
+.responsive-image {
+  width: clamp(300px, 600px, 100%);
+  height: auto;
 }
 
 .giveaway .giveaway-btn:hover {
