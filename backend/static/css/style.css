@@ -2499,7 +2499,7 @@ section {
 }
 
 .giveaway .responsive-image {
-  width: clamp(300px, 600px, 100%);
+  width: clamp(325px, 60rem, 100%);
   height: auto;
 }
 
