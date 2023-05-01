@@ -2428,14 +2428,12 @@ section {
 --------------------------------------------------------------*/
 
 .giveaway {
-  background:  url("../img/lmp_macs_derby_bg.svg") no-repeat center center;
+  background:  url("../img/macs_bg_v36.svg") no-repeat center center;
   background-size: cover;
   padding: 120px 0;
 }
 
 .giveaway-content {
-  background:  url("../img/macs_blue_roses.svg") no-repeat center center;
-  background-size: 600%;
   padding: 120px 0;
   margin: 5%;
 }
