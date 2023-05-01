@@ -2441,8 +2441,8 @@ section {
 .giveaway h1 {
   font-family: "Raleway", sans-serif;
   color: #fff;
-  font-weight: 500;
-  font-size: clamp(3.2rem, 3.8vw, 80px);
+  font-weight: 600;
+  font-size: clamp(2.8rem, 3.8vw, 80px);
   padding: 1.5rem;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
