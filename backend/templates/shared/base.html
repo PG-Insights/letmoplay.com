@@ -35,14 +35,12 @@
 
   <!-- Template Main CSS File -->
   <link href="{{ url_for('static', path='css/style.css') }}" rel="stylesheet">
-
+  {% block header %}
+  {% endblock %}
 </head>
 
 <body>
     {% include "components/navbar.html" %}
-    
-    {% block header %}
-    {% endblock %}
      
     {% block content %}
     {% endblock %}
