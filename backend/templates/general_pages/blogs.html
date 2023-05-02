@@ -1,12 +1,17 @@
 {% extends "shared/base.html" %}
-<head>
+
+{% block title %}
+  <title>Let MO Play - Blogs</title>
+{% endblock %}  
+
+{% block header %}
   <meta 
     content="Join the team and help us end Missouri Sports-Betting Prohibition in 2023!" 
     name="description"
   />
   <meta 
     property="og:image" 
-    content="{{ url_for('static', path='img/Potential-Debate-This-Week.jpg') }}"
+    content="{{ url_for('static', path='img/lmp_round_logo.png') }}"
     alt="Let MO Play round logo"
   />
   <meta 
@@ -27,7 +32,7 @@
   />
   <meta 
     property="twitter:site" 
-    content="https://letmoplay.com/"
+    content="@LetMOPLay"
   />
   <meta 
     property="twitter:title" 
@@ -42,12 +47,9 @@
     content="{{ url_for('static', path='img/lmp_round_logo.png') }}"
     alt="Let MO Play round logo"
   />
-</head>
-{% block header %}  
 {% endblock %}
 
 {% block content %} 
-<body>
   <main id="main">
     <!-- ======= Breadcrumbs ======= -->
     <section id="breadcrumbs" class="breadcrumbs">
@@ -246,13 +248,11 @@
         </div>
       </div>
     </section>
-
+  </main>
+  {% endblock %}
+  
   {% block footer %}
   {% endblock %}
 
   {% block scripts %}
   {% endblock %}
-
-  </body>
-{% endblock %}
-</html>
