@@ -104,14 +104,14 @@ async def blogs(request: Request):
     )
 
 
-@general_pages_router.get("/derby-giveaway-with-macs-downtown")
-async def giveaway_landing(request: Request):
+@general_pages_router.get("/join-the-cause")
+async def join_the_cause_landing(request: Request):
     blogs_dict = await get_all_blogs_for_nav()
     return templates.TemplateResponse(
         str(
             Path(
                 'general_pages',
-                'derby-giveaway-with-macs-downtown.html'
+                'join-the-cause.html'
             )
         ),
         {
