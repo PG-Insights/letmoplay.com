@@ -110,24 +110,24 @@
             </div>
           </article><!-- End blog entry -->
         </div>
-      </div>
-    </div>
-    <div class="container-fluid">
-      <div id="twitter-container"></div>
-      <script src="https://platform.twitter.com/widgets.js"></script>
-      <script>
-      twttr.ready(function (twttr) {
-          twttr.widgets.createFollowButton(
-              'LetMOPlay',
-              document.getElementById('twitter-container'),
-              {
-                  size: 'large'
-              }
-          ).then(function (el) {
-              console.log('Follow button added.');
+        <div class="container-fluid">
+          <div id="twitter-container"></div>
+          <script src="https://platform.twitter.com/widgets.js"></script>
+          <script>
+          twttr.ready(function (twttr) {
+              twttr.widgets.createFollowButton(
+                  'LetMOPlay',
+                  document.getElementById('twitter-container'),
+                  {
+                      size: 'large'
+                  }
+              ).then(function (el) {
+                  console.log('Follow button added.');
+              });
           });
-      });
-      </script>
+          </script>
+        </div>
+      </div>
     </div>
   </section><!-- End Blog Single Section -->  
 </main><!-- End #main -->
