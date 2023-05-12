@@ -35,12 +35,19 @@
     />
     <meta 
       name="twitter:site" 
-      content="https://letmoplay.com/"
+      content="@LetMOPlay"
     />
     <meta 
       property="twitter:image" 
       content="{{ url_for('static', path='img/mo-senate-descends-into-chaos.jpg') }}"
-      alt="Potential Debate Creative"
+    />
+    <meta 
+      name="twitter:widgets:autoload"
+      content="off"
+    />
+    <link 
+      rel="canonical" 
+      href="/blogs/2023/April/Missouri-Senate-Hearing-on-Sports-Betting-Descends-into-Chaos"
     />
   {% endblock %}
   
@@ -105,8 +112,39 @@
         </div>
       </div>
     </div>
-  </section><!-- End Blog Single Section -->
-  
+    <div class="container-fluid">
+      <div id="twitter-container"></div>
+      <script src="https://platform.twitter.com/widgets.js"></script>
+      <script>
+      window.twttr = (function (d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0],
+              t = window.twttr || {};
+          if (d.getElementById(id)) return t;
+          js = d.createElement(s);
+          js.id = id;
+          js.src = "https://platform.twitter.com/widgets.js";
+          fjs.parentNode.insertBefore(js, fjs);
+          t._e = [];
+          t.ready = function (f) {
+              t._e.push(f);
+          };
+          return t;
+      }(document, "script", "twitter-wjs"));
+      
+      twttr.ready(function (twttr) {
+          twttr.widgets.createFollowButton(
+              'LetMOPlay',
+              document.getElementById('twitter-container'),
+              {
+                  size: 'large'
+              }
+          ).then(function (el) {
+              console.log('Follow button added.');
+          });
+      });
+      </script>
+    </div>
+  </section><!-- End Blog Single Section -->  
 </main><!-- End #main -->
     
   {% endblock %}
