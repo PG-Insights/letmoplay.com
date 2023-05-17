@@ -1,12 +1,17 @@
 {% extends "shared/base.html" %}
-<head>
+
+{% block title %}
+  <title>Let MO Play - Blogs</title>
+{% endblock %}  
+
+{% block header %}
   <meta 
     content="Join the team and help us end Missouri Sports-Betting Prohibition in 2023!" 
     name="description"
   />
   <meta 
     property="og:image" 
-    content="{{ url_for('static', path='img/Potential-Debate-This-Week.jpg') }}"
+    content="{{ url_for('static', path='img/lmp_round_logo.png') }}"
     alt="Let MO Play round logo"
   />
   <meta 
@@ -27,7 +32,7 @@
   />
   <meta 
     property="twitter:site" 
-    content="https://letmoplay.com/"
+    content="@LetMOPLay"
   />
   <meta 
     property="twitter:title" 
@@ -40,10 +45,11 @@
   <meta 
     property="twitter:image" 
     content="{{ url_for('static', path='img/lmp_round_logo.png') }}"
-    alt="Let MO Play round logo"
   />
-</head>
-{% block header %}  
+  <link 
+    rel="canonical" 
+    href="https://letmoplay.com/blogs"
+  />
 {% endblock %}
 
 {% block content %} 
@@ -60,197 +66,400 @@
 
       </div>
     </section><!-- End Breadcrumbs -->
+    <div class="container-fluid">
+      <div class="row g-0">
+      
+        <section id="blog" class="blog col-12 col-md-12 col-lg-8 col-xl-8 d-flex justify-content-center align-items-center g-0">
+          <div class="container" data-aos="fade-up">
     
-    <section id="blog" class="blog">
-      <div class="container" data-aos="fade-up">
-        <div class="row">
-          <div class="col-lg-8 entries">
-          
-          <!-- Begin blog entry -->
-            <article class="entry">
-              <div class="entry-img">
-                <img 
-                  src="{{ url_for('static', path='img/cautious-optimism-for-sports-betting-in-2023.jpg') }}" 
-                  alt="Creative for blog article" 
-                  class="img-fluid"
-                >
-              </div>
-              <h2 class="entry-title">
-                <a href="https://letmoplay.com/blogs/2023/April/Cautious-Optimism-for-Sports-Betting-in-2023">
-                  Cautious Optimism for Sports Betting in 2023
-                </a>
-              </h2>
-              <div class="entry-meta">
-                <ul>
-                  <li class="d-flex align-items-center">
-                    <i class="bi bi-person"></i> 
-                    <a href="https://letmoplay.com/blogs/2023/April/Cautious-Optimism-for-Sports-Betting-in-2023">
-                      Brett K.
-                    </a>
-                  </li>
-                  <li class="d-flex align-items-center">
-                    <i class="bi bi-clock"></i>
-                    <a href="https://letmoplay.com/blogs/2023/April/Cautious-Optimism-for-Sports-Betting-in-2023">
-                      <time datetime="2023-04-15">
-                        April 15th, 2023
-                      </time>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div class="entry-content">
-                <p>
-                  Sponsor of House Bill 556, Representative Dan Houx, is still holding out hope that a deal can be reached.
-                </p>
-                <div class="read-more">
-                  <a href="https://letmoplay.com/blogs/2023/April/Cautious-Optimism-for-Sports-Betting-in-2023">
-                    Read More
-                  </a>
-                </div>
-              </div>
-            </article><!-- End blog entry -->
-          
-          <!-- Begin blog entry -->
-            <article class="entry">
-              <div class="entry-img">
-                <img 
-                  src="{{ url_for('static', path='img/How-Long-Have-We-Been-Placing-Bets.jpg') }}" 
-                  alt="Creative for blog article" 
-                  class="img-fluid"
-                >
-              </div>
-              <h2 class="entry-title">
-                <a href="https://letmoplay.com/blogs/2023/April/How-Long-Have-We-Been-Placing-Bets">
-                  How Long Have We Been Placing Bets?
-                </a>
-              </h2>
-              <div class="entry-meta">
-                <ul>
-                  <li class="d-flex align-items-center">
-                    <i class="bi bi-person"></i> 
-                    <a href="https://letmoplay.com/blogs/2023/April/How-Long-Have-We-Been-Placing-Bets">
-                      Dale L.
-                    </a>
-                  </li>
-                  <li class="d-flex align-items-center">
-                    <i class="bi bi-clock"></i>
-                    <a href="https://letmoplay.com/blogs/2023/April/How-Long-Have-We-Been-Placing-Bets">
-                      <time datetime="2023-04-14">
-                        April 14th, 2023
-                      </time>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div class="entry-content">
-                <p>
-                  From ancient civilizations to the modern era sports-betting has had massive cultural impact, unforgettable successes, and the future could be bright for Missouri.
-                </p>
-                <div class="read-more">
-                  <a href="https://letmoplay.com/blogs/2023/April/How-Long-Have-We-Been-Placing-Bets">
-                    Read More
-                  </a>
-                </div>
-              </div>
-            </article><!-- End blog entry -->
-            
-            <!-- Begin blog entry -->
-              <article class="entry">
-                <div class="entry-img">
-                  <img 
-                    src="{{ url_for('static', path='img/mo-senate-descends-into-chaos.jpg') }}" 
-                    alt="MO Senate Choas Creative for blog article" 
-                    class="img-fluid"
-                  >
-                </div>
-                <h2 class="entry-title">
-                  <a href="https://letmoplay.com/blogs/2023/April/Missouri-Senate-Hearing-on-Sports-Betting-Descends-into-Chaos">
-                    Missouri Senate Hearing on Sports Betting Descends into Choas
-                  </a>
-                </h2>
-                <div class="entry-meta">
-                  <ul>
-                    <li class="d-flex align-items-center">
-                      <i class="bi bi-person"></i> 
-                      <a href="https://letmoplay.com/blogs/2023/April/Missouri-Senate-Hearing-on-Sports-Betting-Descends-into-Chaos">
-                        Brett K.
-                      </a>
-                    </li>
-                    <li class="d-flex align-items-center">
-                      <i class="bi bi-clock"></i>
-                      <a href="https://letmoplay.com/blogs/2023/April/How-Long-Have-We-Been-Placing-Bets">
-                        <time datetime="2023-04-10">
-                          April 10th, 2023
-                        </time>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="entry-content">
-                  <p>
-                    Obstructionist Senator derailed the bid, not unlike in years past.
-                  </p>
-                  <div class="read-more">
-                    <a href="https://letmoplay.com/blogs/2023/April/Missouri-Senate-Hearing-on-Sports-Betting-Descends-into-Chaos">
-                      Read More
-                    </a>
+            <div class="row">
+              <div class="col-lg-11 col-xl-10 mx-auto entries">
+              
+                <!-- Begin blog entry -->
+                <article class="entry">
+                  <div class="entry-img">
+                    <img 
+                      src="{{ url_for('static', path='img/How-Sports-Gambling-Legalization-Could-Transform-Missouri-Schools.jpg') }}" 
+                      alt="Creative for blog article" 
+                      class="img-fluid"
+                    >
                   </div>
-                </div>
-              </article><!-- End blog entry -->
-
-            <!-- Begin blog entry -->
-              <article class="entry">
-                <div class="entry-img">
-                  <img 
-                    src="{{ url_for('static', path='img/Potential-Debate-This-Week.jpg') }}" 
-                    alt="MO Senate Choas Creative for blog article" 
-                    class="img-fluid"
-                  >
-                </div>
-                <h2 class="entry-title">
-                  <a href="https://letmoplay.com/blogs/2023/April/Potential-Debate-This-Week">
-                    Senate Leader Hints at Sports Betting Debate This Week
-                  </a>
-                </h2>
-                <div class="entry-meta">
-                  <ul>
-                    <li class="d-flex align-items-center">
-                      <i class="bi bi-person"></i> 
-                      <a href="https://letmoplay.com/blogs/2023/April/Potential-Debate-This-Week">
-                        Brett K.
-                      </a>
-                    </li>
-                    <li class="d-flex align-items-center">
-                      <i class="bi bi-clock"></i>
-                      <a href="https://letmoplay.com/blogs/2023/April/Potential-Debate-This-Week">
-                        <time datetime="2023-04-05">
-                          April 5th, 2023
-                        </time>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="entry-content">
-                  <p>
-                    Missouri Senate Leader Caleb Rowden is sounding more optimistic on sports betting
-                  </p>
-                  <div class="read-more">
-                    <a href="https://letmoplay.com/blogs/2023/April/Potential-Debate-This-Week">
-                      Read More
+                  <h2 class="entry-title">
+                    <a href="/blogs/2023/May/Missouri-Political-Theatrics-Self-Over-Service">
+                      Missouri's Political Theatrics: Prioritizing Self over Service
                     </a>
+                  </h2>
+                  <div class="entry-meta">
+                    <ul>
+                      <li class="d-flex align-items-center">
+                        <i class="bi bi-person"></i> 
+                        <a href="/blogs/2023/May/Missouri-Political-Theatrics-Self-Over-Service">
+                          Brett K.
+                        </a>
+                      </li>
+                      <li class="d-flex align-items-center">
+                        <i class="bi bi-clock"></i>
+                        <a href="/blogs/2023/May/Missouri-Political-Theatrics-Self-Over-Service">
+                          <time datetime="2023-05-16">
+                            May 16th, 2023
+                          </time>
+                        </a>
+                      </li>
+                    </ul>
                   </div>
-                </div>
-              </article><!-- End blog entry -->
+                  <div class="entry-content">
+                    <p>
+                      Explore the disturbing trend of self-interest and political posturing among certain Missouri Senators.
+                    </p>
+                    <div class="read-more">
+                      <a href="/blogs/2023/May/Missouri-Political-Theatrics-Self-Over-Service">
+                        Read More
+                      </a>
+                    </div>
+                  </div>
+                </article><!-- End blog entry -->
+                <!-- Begin blog entry -->
+                <article class="entry">
+                  <div class="entry-img">
+                    <img 
+                      src="{{ url_for('static', path='img/How-Sports-Gambling-Legalization-Could-Transform-Missouri-Schools.jpg') }}" 
+                      alt="Creative for blog article" 
+                      class="img-fluid"
+                    >
+                  </div>
+                  <h2 class="entry-title">
+                    <a href="/blogs/2023/April/How-Sports-Gambling-Legalization-Could-Transform-Missouri-Schools">
+                      Betting on Education: How Sports Gambling Legalization Could Transform Missouri's Schools
+                    </a>
+                  </h2>
+                  <div class="entry-meta">
+                    <ul>
+                      <li class="d-flex align-items-center">
+                        <i class="bi bi-person"></i> 
+                        <a href="/blogs/2023/April/How-Sports-Gambling-Legalization-Could-Transform-Missouri-Schools">
+                          Brett K.
+                        </a>
+                      </li>
+                      <li class="d-flex align-items-center">
+                        <i class="bi bi-clock"></i>
+                        <a href="/blogs/2023/April/How-Sports-Gambling-Legalization-Could-Transform-Missouri-Schools">
+                          <time datetime="2023-04-22">
+                            April 26th, 2023
+                          </time>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="entry-content">
+                    <p>
+                      Discover how legalizing sports betting in Missouri could transform the state's education system.
+                    </p>
+                    <div class="read-more">
+                      <a href="/blogs/2023/April/How-Sports-Gambling-Legalization-Could-Transform-Missouri-Schools">
+                        Read More
+                      </a>
+                    </div>
+                  </div>
+                </article><!-- End blog entry -->
+              
+                <!-- Begin blog entry -->
+                <article class="entry">
+                  <div class="entry-img">
+                    <img 
+                      src="{{ url_for('static', path='img/Senator-Hoskins-Swims-Against-the-Tide.jpg') }}" 
+                      alt="Creative for blog article" 
+                      class="img-fluid"
+                    >
+                  </div>
+                  <h2 class="entry-title">
+                    <a href="/blogs/2023/April/Senator-Hoskins-Swims-Against-the-Tide">
+                      Senator Hoskins Swims Against the Tide: Chiefs Fans Deserves Better
+                    </a>
+                  </h2>
+                  <div class="entry-meta">
+                    <ul>
+                      <li class="d-flex align-items-center">
+                        <i class="bi bi-person"></i> 
+                        <a href="/blogs/2023/April/Senator-Hoskins-Swims-Against-the-Tide">
+                          Brett K.
+                        </a>
+                      </li>
+                      <li class="d-flex align-items-center">
+                        <i class="bi bi-clock"></i>
+                        <a href="/blogs/2023/April/Senator-Hoskins-Swims-Against-the-Tide">
+                          <time datetime="2023-04-22">
+                            April 22nd, 2023
+                          </time>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="entry-content">
+                    <p>
+                      Senator Denny Hoskins faces a crucial decision as he continues to oppose sports betting legalization in Missouri.
+                    </p>
+                    <div class="read-more">
+                      <a href="/blogs/2023/April/Senator-Hoskins-Swims-Against-the-Tide">
+                        Read More
+                      </a>
+                    </div>
+                  </div>
+                </article><!-- End blog entry -->
+                
+                <!-- Begin blog entry -->
+                <article class="entry">
+                  <div class="entry-img">
+                    <img 
+                      src="{{ url_for('static', path='img/Filibusters-and-Stalled-Progress-of-Sports-Betting-in-Missouri.jpg') }}" 
+                      alt="Creative for blog article" 
+                      class="img-fluid"
+                    >
+                  </div>
+                  <h2 class="entry-title">
+                    <a href="/blogs/2023/April/Filibusters-and-Stalled-Progress-of-Sports-Betting-in-Missouri">
+                      Filibusters and the Stalled Progress of Sports Betting in Missouri
+                    </a>
+                  </h2>
+                  <div class="entry-meta">
+                    <ul>
+                      <li class="d-flex align-items-center">
+                        <i class="bi bi-person"></i> 
+                        <a href="/blogs/2023/April/Filibusters-and-Stalled-Progress-of-Sports-Betting-in-Missouri">
+                          Brett K.
+                        </a>
+                      </li>
+                      <li class="d-flex align-items-center">
+                        <i class="bi bi-clock"></i>
+                        <a href="/blogs/2023/April/Filibusters-and-Stalled-Progress-of-Sports-Betting-in-Missouri">
+                          <time datetime="2023-04-18">
+                            April 18th, 2023
+                          </time>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="entry-content">
+                    <p>
+                      Viewed an important legislative tactic by some, the filibuster is drawing critics in the state Capitol.
+                    </p>
+                    <div class="read-more">
+                      <a href="/blogs/2023/April/Filibusters-and-Stalled-Progress-of-Sports-Betting-in-Missouri">
+                        Read More
+                      </a>
+                    </div>
+                  </div>
+                </article><!-- End blog entry -->        
+              
+                <!-- Begin blog entry -->
+                <article class="entry">
+                  <div class="entry-img">
+                    <img 
+                      src="{{ url_for('static', path='img/cautious-optimism-for-sports-betting-in-2023.jpg') }}" 
+                      alt="Creative for blog article" 
+                      class="img-fluid"
+                    >
+                  </div>
+                  <h2 class="entry-title">
+                    <a href="/blogs/2023/April/Cautious-Optimism-for-Sports-Betting-in-2023">
+                      Cautious Optimism for Sports Betting in 2023
+                    </a>
+                  </h2>
+                  <div class="entry-meta">
+                    <ul>
+                      <li class="d-flex align-items-center">
+                        <i class="bi bi-person"></i> 
+                        <a href="/blogs/2023/April/Cautious-Optimism-for-Sports-Betting-in-2023">
+                          Brett K.
+                        </a>
+                      </li>
+                      <li class="d-flex align-items-center">
+                        <i class="bi bi-clock"></i>
+                        <a href="/blogs/2023/April/Cautious-Optimism-for-Sports-Betting-in-2023">
+                          <time datetime="2023-04-15">
+                            April 15th, 2023
+                          </time>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="entry-content">
+                    <p>
+                      Sponsor of House Bill 556, Representative Dan Houx, is still holding out hope that a deal can be reached.
+                    </p>
+                    <div class="read-more">
+                      <a href="/blogs/2023/April/Cautious-Optimism-for-Sports-Betting-in-2023">
+                        Read More
+                      </a>
+                    </div>
+                  </div>
+                </article><!-- End blog entry -->
+              
+                <!-- Begin blog entry -->
+                <article class="entry">
+                  <div class="entry-img">
+                    <img 
+                      src="{{ url_for('static', path='img/How-Long-Have-We-Been-Placing-Bets.jpg') }}" 
+                      alt="Creative for blog article" 
+                      class="img-fluid"
+                    >
+                  </div>
+                  <h2 class="entry-title">
+                    <a href="/blogs/2023/April/How-Long-Have-We-Been-Placing-Bets">
+                      How Long Have We Been Placing Bets?
+                    </a>
+                  </h2>
+                  <div class="entry-meta">
+                    <ul>
+                      <li class="d-flex align-items-center">
+                        <i class="bi bi-person"></i> 
+                        <a href="/blogs/2023/April/How-Long-Have-We-Been-Placing-Bets">
+                          Dale L.
+                        </a>
+                      </li>
+                      <li class="d-flex align-items-center">
+                        <i class="bi bi-clock"></i>
+                        <a href="/blogs/2023/April/How-Long-Have-We-Been-Placing-Bets">
+                          <time datetime="2023-04-14">
+                            April 14th, 2023
+                          </time>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="entry-content">
+                    <p>
+                      From ancient civilizations to the modern era sports-betting has had massive cultural impact, unforgettable successes, and the future could be bright for Missouri.
+                    </p>
+                    <div class="read-more">
+                      <a href="/blogs/2023/April/How-Long-Have-We-Been-Placing-Bets">
+                        Read More
+                      </a>
+                    </div>
+                  </div>
+                </article><!-- End blog entry -->
+                
+                <!-- Begin blog entry -->
+                <article class="entry">
+                  <div class="entry-img">
+                    <img 
+                      src="{{ url_for('static', path='img/mo-senate-descends-into-chaos.jpg') }}" 
+                      alt="MO Senate Choas Creative for blog article" 
+                      class="img-fluid"
+                    >
+                  </div>
+                  <h2 class="entry-title">
+                    <a href="/blogs/2023/April/Missouri-Senate-Hearing-on-Sports-Betting-Descends-into-Chaos">
+                      Missouri Senate Hearing on Sports Betting Descends into Choas
+                    </a>
+                  </h2>
+                  <div class="entry-meta">
+                    <ul>
+                      <li class="d-flex align-items-center">
+                        <i class="bi bi-person"></i> 
+                        <a href="/blogs/2023/April/Missouri-Senate-Hearing-on-Sports-Betting-Descends-into-Chaos">
+                          Brett K.
+                        </a>
+                      </li>
+                      <li class="d-flex align-items-center">
+                        <i class="bi bi-clock"></i>
+                        <a href="/blogs/2023/April/How-Long-Have-We-Been-Placing-Bets">
+                          <time datetime="2023-04-10">
+                            April 10th, 2023
+                          </time>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="entry-content">
+                    <p>
+                      Obstructionist Senator derailed the bid, not unlike in years past.
+                    </p>
+                    <div class="read-more">
+                      <a href="/blogs/2023/April/Missouri-Senate-Hearing-on-Sports-Betting-Descends-into-Chaos">
+                        Read More
+                      </a>
+                    </div>
+                  </div>
+                </article><!-- End blog entry -->
+  
+                <!-- Begin blog entry -->
+                <article class="entry">
+                  <div class="entry-img">
+                    <img 
+                      src="{{ url_for('static', path='img/Potential-Debate-This-Week.jpg') }}" 
+                      alt="MO Senate Choas Creative for blog article" 
+                      class="img-fluid"
+                    >
+                  </div>
+                  <h2 class="entry-title">
+                    <a href="/blogs/2023/April/Potential-Debate-This-Week">
+                      Senate Leader Hints at Sports Betting Debate This Week
+                    </a>
+                  </h2>
+                  <div class="entry-meta">
+                    <ul>
+                      <li class="d-flex align-items-center">
+                        <i class="bi bi-person"></i> 
+                        <a href="/blogs/2023/April/Potential-Debate-This-Week">
+                          Brett K.
+                        </a>
+                      </li>
+                      <li class="d-flex align-items-center">
+                        <i class="bi bi-clock"></i>
+                        <a href="/blogs/2023/April/Potential-Debate-This-Week">
+                          <time datetime="2023-04-05">
+                            April 5th, 2023
+                          </time>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="entry-content">
+                    <p>
+                      Missouri Senate Leader Caleb Rowden is sounding more optimistic on sports betting
+                    </p>
+                    <div class="read-more">
+                      <a href="/blogs/2023/April/Potential-Debate-This-Week">
+                        Read More
+                      </a>
+                    </div>
+                  </div>
+                </article><!-- End blog entry -->
+              </div>
+            </div>
           </div>
+        </section>
+        
+        <div class="blog col-auto col-12 col-md-12 col-lg-3 col-xl-4 text-center justify-content-center align-items-center mx-auto pe-lg-5">          
+          <div class="container">
+            <div id="twitter-timeline"></div>  
+          </div>
+          <script src="https://platform.twitter.com/widgets.js"></script>    
+          <script>
+            twttr.widgets.createTimeline(
+              {
+                sourceType: "profile",
+                screenName: "LetMOPLay",
+              },
+              document.getElementById("twitter-timeline"),
+              {
+                
+                chrome: "nofooter",
+                tweetLimit: 5,
+                showReplies: "true",
+              }
+            );
+          </script>
+        
         </div>
       </div>
-    </section>
-
+    </div>
+  </main>
+  {% endblock %}
+  
   {% block footer %}
   {% endblock %}
 
   {% block scripts %}
   {% endblock %}
 
-  
-{% endblock %}

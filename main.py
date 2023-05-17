@@ -45,9 +45,10 @@ if str(MODELS_DIR) not in sys.path:
     sys.path.append(str(MODELS_DIR))
     
 
-from fastapi import FastAPI
+from fastapi import FastAPI, status
 from core.config import settings
 from apis.base import api_router
+from middleware.custom_error_middleware import not_found_exception_handler
 from fastapi.staticfiles import StaticFiles
 from db.session import engine
 from db.base import Base
@@ -55,6 +56,10 @@ from db.base import Base
 
 def include_router(app):
     app.include_router(api_router)
+    
+
+def include_customer_404_handler(app):
+    app.add_exception_handler(status.HTTP_404_NOT_FOUND, not_found_exception_handler)
     
 
 def configure_static(app):
@@ -73,6 +78,7 @@ def create_tables():
 
 def start_application():
     app = FastAPI(title=settings.PROJECT_NAME,version=settings.PROJECT_VERSION)
+    include_customer_404_handler(app)
     include_router(app)
     configure_static(app)
     create_tables()

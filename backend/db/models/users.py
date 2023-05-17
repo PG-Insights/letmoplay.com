@@ -6,7 +6,7 @@ Created on Fri Mar 10 19:17:04 2023
 @author: dale
 """
 
-from sqlalchemy import Column,Integer, String,Boolean
+from sqlalchemy import Column, Integer, String, Boolean
 
 from db.base_class import Base
 

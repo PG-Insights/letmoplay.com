@@ -1,7 +1,52 @@
 {% extends "shared/base.html" %}
 
-<body>
+{% block title %}
+  <title>Let MO Play - Contact Us
+{% endblock %}
+
 {% block header %} 
+  <meta 
+    content="Send us a message and help us end Missouri Sports-Betting Prohibition in 2023!" 
+    name="description"
+  />
+  <meta 
+    property="og:image" 
+    content="{{ url_for('static', path='img/Potential-Debate-This-Week.jpg') }}"
+    alt="Let MO Play round logo"
+  />
+  <meta 
+    property="og:description" 
+    content="Send us a message and help us end Missouri Sports-Betting Prohibition in 2023!"
+  />
+  <meta 
+    property="og:title" 
+    content="Let MO Play"
+  />
+  <meta 
+    name="twitter:card" 
+    content="summary_large_image"
+  />
+  <meta 
+    property="twitter:url" 
+    content="https://letmoplay.com/"
+  />
+  <meta 
+    property="twitter:site" 
+    content="@LetMOPLay"
+  />
+  <meta 
+    property="twitter:title" 
+    content="Let MO Play"
+  />
+  <meta 
+    property="twitter:description" 
+    content="Send us a message and help us end Missouri Sports-Betting Prohibition in 2023!"
+  />
+  <meta 
+    property="twitter:image" 
+    content="{{ url_for('static', path='img/lmp_round_logo.png') }}"
+    alt="Let MO Play round logo"
+  />
 {% endblock %}
 
 {% block content %} 
@@ -14,6 +59,9 @@
     </div>
   </section>
 {% endblock %} 
+
 {% block footer %}
 {% endblock %}
 
+{% block scripts %}
+{% endblock %}

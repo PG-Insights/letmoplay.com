@@ -1,0 +1,71 @@
+{% extends "shared/base.html" %}
+
+{% block title %}
+  <title>Let MO Play - 404 Not Found</title>
+{% endblock %}
+
+{% block header %} 
+  <meta 
+    content="The page you requested from letmoplay.com not found" 
+    name="description"
+  />
+  <meta 
+    property="og:image" 
+    content="{{ url_for('static', path='img/lmp_round_logo.png') }}"
+    alt="Let MO Play round logo"
+  />
+  <meta 
+    property="og:description" 
+    content="The page you requested from letmoplay.com not found"
+  />
+  <meta 
+    property="og:title" 
+    content="Let MO Play - 404 Not Found"
+  />
+  <meta 
+    name="twitter:card" 
+    content="summary_large_image"
+  />
+  <meta 
+    property="twitter:url" 
+    content="https://letmoplay.com/"
+  />
+  <meta 
+    property="twitter:site" 
+    content="@LetMOPlay"
+  />
+  <meta 
+    property="twitter:title" 
+    content="Let MO Play - 404 Not Found"
+  />
+  <meta 
+    property="twitter:description" 
+    content="The page you requested from letmoplay.com not found"
+  />
+  <meta 
+    property="twitter:image" 
+    content="{{ url_for('static', path='img/lmp_round_logo.png') }}"
+    alt="Let MO Play round logo"
+  /> 
+{% endblock %}
+
+{% block content %} 
+
+<section id="cta" class="cta pt-5">
+  <div class="container pt-5 mt-5">
+    <div class="row mt-5 pt-5" data-aos="zoom-in">
+      <div class="col-lg-9 text-center text-lg-start">
+        <h3>The page you requested could not be found.</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}
+
+{% block footer %} 
+{% endblock %}
+
+{% block scripts %} 
+{% endblock %}

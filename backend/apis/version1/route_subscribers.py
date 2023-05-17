@@ -10,9 +10,10 @@ from fastapi import APIRouter
 from sqlalchemy.orm import Session
 from fastapi import Depends
 
-from schemas.subscribers import SubscriberCreate, ShowSubscriber
 from db.session import get_db
+from schemas.subscribers import SubscriberCreate, ShowSubscriber
 from db.repository.subscribers import create_new_subscriber
+from db.models.subscribers import Subscriber
 
 router = APIRouter()
 
@@ -27,3 +28,16 @@ def create_subscriber(
         db=db
     )
     return subscriber
+
+
+def remove_subscriber(subscriber_email: str,
+                      db: Session = Depends(get_db)
+                      ):
+    subscriber = db.query(
+        Subscriber
+    ).filter(Subscriber.email == subscriber_email).first()
+
+    if subscriber:
+        db.delete(subscriber)
+        db.commit()
+        return {"email": subscriber_email}

@@ -20,8 +20,25 @@ def create_new_subscriber(
         agree_tos=True,
         date_posted=datetime.now()
     )
-    db.add(subscriber)
-    db.commit()
-    db.refresh(subscriber)
-    
-    return subscriber
+    try:
+        db.add(subscriber)
+    except:
+        db.rollback()
+    else:
+        db.commit()
+        db.refresh(subscriber)
+    finally:
+        return subscriber
+
+
+def remove_subscriber(
+        subscriber_email: str,
+        db:Session):
+    subscriber = db.query(
+        Subscriber
+    ).filter(Subscriber.email == subscriber_email).first()
+
+    if subscriber:
+        db.delete(subscriber)
+        db.commit()
+        return {"email": subscriber_email}

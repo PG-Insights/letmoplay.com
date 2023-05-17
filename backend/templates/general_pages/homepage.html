@@ -1,4 +1,3 @@
-
 {% extends "shared/base.html" %}
 {% block head %}
   <meta 
@@ -7,7 +6,7 @@
   />
   <meta 
     property="og:image" 
-    content="{{ url_for('static', path='img/Potential-Debate-This-Week.jpg') }}"
+    content="{{ url_for('static', path='img/lmp_round_logo.png') }}"
     alt="Let MO Play round logo"
   />
   <meta 
@@ -28,7 +27,7 @@
   />
   <meta 
     property="twitter:site" 
-    content="https://letmoplay.com/"
+    content="@LetMOPlay"
   />
   <meta 
     property="twitter:title" 
@@ -56,11 +55,14 @@
   />
 {% endblock %}
 
+{% block title %}
+  <title>Let MO Play</title>
+{% endblock %}
+
 {% block header %}  
 {% endblock %}
 
 {% block content %} 
-  
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex justify-cntent-center align-items-center">
       <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
@@ -74,31 +76,31 @@
         </div>
         <div class="carousel-item">
           <div class="carousel-container">
-            <h2 class="animate__animated animate__fadeInDown">Sponsored by <span>Mac's Downtown Alton</span></h2>
-            <p class="animate__animated animate__fadeInUp">Win $50 giftcard to Mac's Downtown Alton where you can enjoy a meal and legally place your bets.</p>
+            <h2 class="animate__animated animate__fadeInDown">Subscribe <span>to Join the Cause!</span></h2>
+            <p class="animate__animated animate__fadeInUp">You don't want to miss our updates, giveaways, and newsletter. Subscribe today and stay connected.</p>
             <a 
               target="_blank" 
               rel="noopener noreferrer" 
-              href="/stlsc-tickets-giveaway" 
+              href="/derby-giveaway-with-macs-downtown" 
               class="btn-get-started animate__animated animate__fadeInUp">
-                Enter Giveaway
+                Subscribe
             </a>
           </div>
         </div>
         <!-- Slide 2 -->
         <div class="carousel-item">
           <div class="carousel-container">
-            <h2 class="animate__animated animate__fadeInDown">More Jobs for Missouri</h2>
-            <p class="animate__animated animate__fadeInUp">Legal sports betting creates jobs in various sectors, such as casinos, sportsbooks, and technology companies that provide software and services to the industry.</p>
-            <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+            <h2 class="animate__animated animate__fadeInDown">Check Out Our Blog</h2>
+            <p class="animate__animated animate__fadeInUp">Exclusive content updated regularly with the latest and greatest in sports betting news.</p>
+            <a href="/blogs" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
           </div>
         </div>
         <!-- Slide 3 -->
         <div class="carousel-item">
           <div class="carousel-container">
-            <h2 class="animate__animated animate__fadeInDown">Local Businesses Benefit</h2>
-            <p class="animate__animated animate__fadeInUp">By offering legal sports betting options, local businesses can attract customers who may not have otherwise visited their establishments.</p>
-            <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+            <h2 class="animate__animated animate__fadeInDown">Missouri Deals with Choas</h2>
+            <p class="animate__animated animate__fadeInUp">Read our blog describing the state of the Missouri Senate and some of the key players holding up progress.</p>
+            <a href="/blogs/2023/April/Missouri-Senate-Hearing-on-Sports-Betting-Descends-into-Chaos" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
           </div>
         </div>
         <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
@@ -177,9 +179,9 @@
       <!-- ======= Why Us Section ======= -->
       <section id="why-us" class="why-us">
         <div class="container">
-          <div class="row g-1">
-            <div class="col-lg-5 align-items-stretch position-relative video-box" data-aos="fade-right">
-              {% include "components/insta-video.html" %}
+          <div class="row g-1 mx-auto">
+            <div class="col-lg-5 pt-lg-5 mt-lg-5 align-items-stretch position-relative video-box mx-auto" data-aos="fade-right">
+              {% include "components/twitter-post.html" %}
             </div>
             <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch" data-aos="fade-left">
               <div class="content">
@@ -291,6 +293,4 @@
   {% block scripts %}
   {% endblock %}
 
-  
-{% endblock %}
 

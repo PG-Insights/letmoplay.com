@@ -15,7 +15,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 from get_all_blogs_dict import get_all_blogs_dict
-from route_subscribers import create_subscriber
+from route_subscribers import create_subscriber, remove_subscriber
 from schemas.subscribers import SubscriberCreate
 from db.session import get_db
 
@@ -46,6 +46,38 @@ async def home(request: Request):
             Path(
                 'general_pages',
                 'homepage.html'
+            )
+        ),
+        {
+            "request": request,
+            "all_blogs_dict": blogs_dict,
+        },
+    )
+
+@general_pages_router.get("/privacy-policy")
+async def privacy_policy(request: Request):
+    blogs_dict = await get_all_blogs_for_nav()
+    return templates.TemplateResponse(
+        str(
+            Path(
+                'general_pages',
+                'privacy-policy.html'
+            )
+        ),
+        {
+            "request": request,
+            "all_blogs_dict": blogs_dict,
+        },
+    )
+
+@general_pages_router.get("/user-agreement")
+async def terms_of_use(request: Request):
+    blogs_dict = await get_all_blogs_for_nav()
+    return templates.TemplateResponse(
+        str(
+            Path(
+                'general_pages',
+                'user-agreement.html'
             )
         ),
         {
@@ -90,14 +122,14 @@ async def sponsors_info_page(request: Request):
     )
 
 
-@general_pages_router.get("/derby-giveaway-with-macs-downtown")
-async def giveaway_landing(request: Request):
+@general_pages_router.get("/join-the-cause")
+async def join_the_cause_landing(request: Request):
     blogs_dict = await get_all_blogs_for_nav()
     return templates.TemplateResponse(
         str(
             Path(
                 'general_pages',
-                'derby-giveaway-with-macs-downtown.html'
+                'join-the-cause.html'
             )
         ),
         {
@@ -343,6 +375,7 @@ async def unsubscribe(
 async def submit_unsubscribe_form(
     request: Request,
     email: str = Form(...),
+    db: Session = Depends(get_db)
 ) -> templates.TemplateResponse:
     data_path = Path(
         '.',
@@ -357,6 +390,7 @@ async def submit_unsubscribe_form(
             df['Email'].str.casefold() != (str(email).casefold())
         ]
         new_df.to_csv(str(data_path), index=False)
+    remove_subscriber(email, db=db)
     blogs_dict = await get_all_blogs_for_nav()
     return templates.TemplateResponse(
         str(
