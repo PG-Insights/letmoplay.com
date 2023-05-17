@@ -1,0 +1,88 @@
+{% extends "shared/base.html" %}
+{% block head %}
+  <meta 
+    content="Join the team and help us end Missouri Sports-Betting Prohibition in 2023!" 
+    name="description"
+  />
+  <meta 
+    property="og:image" 
+    content="{{ url_for('static', path='img/Potential-Debate-This-Week.jpg') }}"
+    alt="Let MO Play round logo"
+  />
+  <meta 
+    property="og:description" 
+    content="Join the team and help us end Missouri Sports-Betting Prohibition in 2023!"
+  />
+  <meta 
+    property="og:title" 
+    content="Let MO Play - Sponsorship Tiers"
+  />
+  <meta 
+    name="twitter:card" 
+    content="summary_large_image"
+  />
+  <meta 
+    property="twitter:url" 
+    content="https://letmoplay.com/"
+  />
+  <meta 
+    property="twitter:site" 
+    content="@LetMOPlay"
+  />
+  <meta 
+    property="twitter:title" 
+    content="Let MO Play - Sponsorship Tiers"
+  />
+  <meta 
+    property="twitter:description" 
+    content="Join the team and help us end Missouri Sports-Betting Prohibition in 2023!"
+  />
+  <meta 
+    property="twitter:image" 
+    content="{{ url_for('static', path='img/lmp_round_logo.png') }}"
+  />
+  <meta 
+    property="twitter:image:alt" 
+    content="Let MO Play round logo"
+  />
+  <meta 
+    name="twitter:widgets:autoload"
+    content="off"
+  />
+  <link 
+    rel="canonical" 
+    href="https://letmoplay.com/sponsors/sign-up/tiers"
+  />
+{% endblock %}
+
+{% block header %}  
+{% endblock %}
+
+{% block content %} 
+  <main>
+    <section class="container-fluid mt-5 pt-5">
+      <div class="container-fluid pt-5">
+      <div class="row text-center mb-auto mx-auto">
+        <div class="col-12 text-center mb-auto mx-auto align-content-center">
+          <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+            <stripe-pricing-table 
+              pricing-table-id="prctbl_1N8n4kBktieklUZVnefLnzWC"
+              publishable-key="pk_live_51MfmlWBktieklUZVJn1wFXETxO4gD8VWvqtYwggT8fnEiXpGwhRyctK37SWrxH61vvlZ07RtvR40cDxLBKG6IdwE00lTSGNTk4"
+            >
+            </stripe-pricing-table>
+        </div>
+      </div>
+      </div>
+    </section>
+    {% include "components/form.html" %}
+    
+  </main><!-- End #main -->
+
+  {% block footer %}
+  {% endblock %}
+
+  {% block scripts %}
+  {% endblock %}
+
+  
+{% endblock %}

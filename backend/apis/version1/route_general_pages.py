@@ -103,6 +103,24 @@ async def blogs(request: Request):
         },
     )
 
+@general_pages_router.get("/sponsors/sign-up/tiers")
+async def sponsors_info_page(request: Request):
+    blogs_dict = await get_all_blogs_for_nav()
+    return templates.TemplateResponse(
+        str(
+            Path(
+                'general_pages',
+                'sponsors',
+                'sign-up',
+                'tiers.html'
+            )
+        ),
+        {
+            "request": request,
+            "all_blogs_dict": blogs_dict,
+        },
+    )
+
 
 @general_pages_router.get("/join-the-cause")
 async def join_the_cause_landing(request: Request):

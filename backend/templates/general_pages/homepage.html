@@ -1,10 +1,5 @@
 {% extends "shared/base.html" %}
-
-{% block title %}
-  <title>Let MO Play</title>
-{% endblock %}
-
-{% block header %} 
+{% block head %}
   <meta 
     content="Join the team and help us end Missouri Sports-Betting Prohibition in 2023!" 
     name="description"
@@ -45,8 +40,26 @@
   <meta 
     property="twitter:image" 
     content="{{ url_for('static', path='img/lmp_round_logo.png') }}"
-    alt="Let MO Play round logo"
-  /> 
+  />
+  <meta 
+    property="twitter:image:alt" 
+    content="Let MO Play round logo"
+  />
+  <meta 
+    name="twitter:widgets:autoload"
+    content="off"
+  />
+  <link 
+    rel="canonical" 
+    href="https://letmoplay.com"
+  />
+{% endblock %}
+
+{% block title %}
+  <title>Let MO Play</title>
+{% endblock %}
+
+{% block header %}  
 {% endblock %}
 
 {% block content %} 
@@ -280,5 +293,4 @@
   {% block scripts %}
   {% endblock %}
 
-{% endblock %}
-</html>
+
