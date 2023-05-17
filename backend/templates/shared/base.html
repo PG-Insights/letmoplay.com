@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-38DXDZJ1HY"></script>
   <script>
@@ -36,9 +35,10 @@
   <!-- Template Main CSS File -->
   <link href="{{ url_for('static', path='css/style.css') }}" rel="stylesheet">
 
+{% block head %}
+{% endblock %}
 </head>
-
-<body>
+  <body>
     {% include "components/navbar.html" %}
     
     {% block header %}
@@ -75,5 +75,5 @@
     {% endblock %}
 
 
-</body>
+  </body>
 </html>
