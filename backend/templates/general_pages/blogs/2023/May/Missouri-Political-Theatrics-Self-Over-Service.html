@@ -88,10 +88,62 @@
                 <a href="#">Missouri's Political Theatrics: Prioritizing Self over Service</a>
               </h2>
     
-              <div class="entry-meta">
+              <<div class="entry-meta">
                 <ul>
-                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="mailto: letmoplay@letmoplay.com">Brett K.</a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#blog"><time datetime="2023-05-16">May 16th, 2023</time></a></li>
+                  <div class="row g-3">
+                    <div class="col-auto">
+                      <li class="d-flex align-items-center">
+                        <i class="bi bi-person"></i> 
+                        <a href="mailto: contacts@letmoplay.com">
+                          Brett K.
+                        </a>
+                      </li>       
+                    </div>
+                    <div class="col-auto">
+                      <li class="d-flex align-items-center">
+                        <i class="bi bi-clock"></i>
+                        <a href="#blog">
+                          <time datetime="2023-05-16">
+                            May 16th, 2023
+                          </time>
+                        </a>
+                      </li>
+                    </div>
+                    <div class="col-auto d-none d-md-flex">
+                      <li class="d-flex align-items-center ">
+                        <div id="twitter-follow"></div>
+                      </li>
+                    </div>
+                    <div class="col-auto">
+                      <li class="d-flex align-items-center">
+                        <div id="twitter-share"></div>
+                      </li>
+                    </div>
+                  </div>
+                  <script src="https://platform.twitter.com/widgets.js"></script>
+                  <script>
+                    twttr.ready(function (twttr) {
+                      twttr.widgets.createFollowButton(
+                          "LetMOPlay",
+                          document.getElementById("twitter-follow"),
+                          {
+                            showScreenName: "false"
+                          }
+                      ).then(function (el) {
+                          console.log("Follow button added.");
+                      });
+                      twttr.widgets.createShareButton(
+                          "https:\/\/letmoplay.com\/blogs\/2023\/May\/Missouri-Political-Theatrics-Self-Over-Service",
+                          document.getElementById("twitter-share"),
+                          {
+                              text: "Theatrics in politics puts the needs of those in power above Missouri constituents.",
+                              hashtags: "moleg,letmoplay",
+                          }
+                      ).then(function (el) {
+                          console.log("Share button added.");
+                      });
+                    });
+                  </script>
                 </ul>
               </div>
     
@@ -132,7 +184,7 @@
                 <p>The antics of Senators Hoskins and Eigel, akin to the ejected parent at the baseball game, only serve to stall progress and divert attention from the pertinent issues at hand. Their filibusters and unprofessional outbursts have turned the Senate into a spectacle, overshadowing not only the issue of legalized sports betting but also leaving the interests of Missourians comprehensively unaddressed.</p>
                 
                 <div class="row mx-auto">
-                  <div class="col-12 mx-auto">
+                  <div class="col-12 mx-auto text-center">
                     <div class="container-fluid" id="tweet-container-1">
                       <script src="https://platform.twitter.com/widgets.js"></script>
                       <script>
