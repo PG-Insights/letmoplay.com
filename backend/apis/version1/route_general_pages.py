@@ -139,6 +139,40 @@ async def join_the_cause_landing(request: Request):
     )
 
 
+@general_pages_router.get("/stlsc-tickets-giveaway")
+async def stlsc_giveaway(request: Request):
+    blogs_dict = await get_all_blogs_for_nav()
+    return templates.TemplateResponse(
+        str(
+            Path(
+                'general_pages',
+                'join-the-cause.html'
+            )
+        ),
+        {
+            "request": request,
+            "all_blogs_dict": blogs_dict,
+        },
+    )
+
+
+@general_pages_router.get("/derby-giveaway-with-macs-downtown")
+async def macs_derby_giveaway(request: Request):
+    blogs_dict = await get_all_blogs_for_nav()
+    return templates.TemplateResponse(
+        str(
+            Path(
+                'general_pages',
+                'join-the-cause.html'
+            )
+        ),
+        {
+            "request": request,
+            "all_blogs_dict": blogs_dict,
+        },
+    )
+
+
 @general_pages_router.get("/contact")
 async def contact(request: Request):
     blogs_dict = await get_all_blogs_for_nav()
