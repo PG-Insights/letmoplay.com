@@ -438,3 +438,18 @@ async def submit_unsubscribe_form(
             "all_blogs_dict": blogs_dict,
         },
     )
+
+
+@general_pages_router.get("/sitemap.xml")
+async def sitemap(request: Request):
+    return templates.TemplateResponse(
+        str(
+            Path(
+                'general_pages',
+                'sitemap.xml'
+            )
+        ),
+        {
+            "request": request,
+        },
+    )
