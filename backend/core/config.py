@@ -11,8 +11,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class Settings:
-    PROJECT_NAME:str = 'Let MO Bet'
-    PROJECT_VERSION: str = '1.0.0'
+    PROJECT_NAME:str = 'Let MO Play'
+    PROJECT_VERSION: str = '1.0.1'
     
     POSTGRES_USER : str = os.getenv('POSTGRES_USER')
     POSTGRES_PASSWORD = os.getenv('POSTGRES_PASSWORD')
