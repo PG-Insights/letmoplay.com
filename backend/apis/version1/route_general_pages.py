@@ -17,6 +17,8 @@ from sqlalchemy.orm import Session
 from get_all_blogs_dict import get_all_blogs_dict
 from route_subscribers import create_subscriber, remove_subscriber
 from schemas.subscribers import SubscriberCreate
+from route_giveaway_entrants import create_entrant
+from schemas.giveaway_entrants import EntrantCreate
 from db.session import get_db
 
 templates_dir = Path(
@@ -54,6 +56,7 @@ async def home(request: Request):
         },
     )
 
+
 @general_pages_router.get("/privacy-policy")
 async def privacy_policy(request: Request):
     blogs_dict = await get_all_blogs_for_nav()
@@ -69,6 +72,7 @@ async def privacy_policy(request: Request):
             "all_blogs_dict": blogs_dict,
         },
     )
+
 
 @general_pages_router.get("/user-agreement")
 async def terms_of_use(request: Request):
@@ -130,6 +134,23 @@ async def join_the_cause_landing(request: Request):
             Path(
                 'general_pages',
                 'join-the-cause.html'
+            )
+        ),
+        {
+            "request": request,
+            "all_blogs_dict": blogs_dict,
+        },
+    )
+
+
+@general_pages_router.get("/usmnt-stl-tickets-giveaway")
+async def usmnt_giveaway_landing(request: Request):
+    blogs_dict = await get_all_blogs_for_nav()
+    return templates.TemplateResponse(
+        str(
+            Path(
+                'general_pages',
+                'usmnt-stl-tickets-giveaway.html'
             )
         ),
         {
@@ -370,6 +391,72 @@ async def submit_email_form(request: Request,
 
     subscriber_data = SubscriberCreate(email=email)
     create_subscriber(subscriber=subscriber_data, db=db)
+    
+    return templates.TemplateResponse(
+        str(
+            Path(
+                'components',
+                'success.html'
+            )
+        ),
+        {
+            "request": request,
+            "name": email,
+            "all_blogs_dict": blogs_dict,
+        }
+    )
+
+
+@general_pages_router.post("/submit-giveaway", response_model=None)
+async def submit_giveaway_form(request: Request,
+                            email: str = Form(...),
+                            db: Session = Depends(get_db),
+                            ) -> templates.TemplateResponse:
+    # Create DataFrame
+    data = {
+        'Name': ['None'],
+        'Email': [str(email)],
+        'Subject': ['None'],
+        'Message': ['None'],
+        'Timestamp': [str(datetime.now())]
+    }
+    df = pd.DataFrame(data)
+    data_path = Path(
+        '.',
+        'backend',
+        'db',
+        'emails_db',
+        'subscribers.csv'
+    )
+    if os.path.exists(str(data_path)):
+        df = pd.concat(
+            [
+                pd.read_csv(str(data_path)).copy(),
+                df.copy()
+            ],
+            axis=0
+        )
+        
+    # Drop duplicates
+    df = df.copy().drop_duplicates(
+        subset=[
+            'Email', 
+            'Message',
+        ],
+        ignore_index=True,
+    )
+    
+    # Save to CSV file
+    df.to_csv(str(data_path), index=False)
+
+    # Render success template
+    blogs_dict = await get_all_blogs_for_nav()
+
+    subscriber_data = SubscriberCreate(email=email)
+    create_subscriber(subscriber=subscriber_data, db=db)
+    
+    entrant_data = EntrantCreate(email=email)
+    create_entrant(entrant=entrant_data, db=db)
     
     return templates.TemplateResponse(
         str(
