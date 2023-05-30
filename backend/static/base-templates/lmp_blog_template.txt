@@ -1,0 +1,216 @@
+{% extends "shared/base.html" %}
+{% block header %}
+<meta 
+  property="og:image" 
+  content="{{ url_for('static', path='img/[URL/IMAGE PATH].jpg') }}"
+  alt="[ALT TEXT]"
+/>
+<meta 
+  content="[DESCRIPTION]" 
+  name="description"
+/>
+<meta 
+  property="og:description" 
+  content="[DESCRIPTION]"
+/>
+<meta 
+  property="og:title" 
+  content="[TITLE]"
+/>
+<meta 
+  name="twitter:card" 
+  content="summary_large_image"
+/>
+<meta 
+  property="twitter:url" 
+  content="https://letmoplay.com/blogs/2023/May/[URL/IMAGE PATH]"
+/>
+<meta 
+  name="twitter:title" 
+  content="[TITLE]"
+/>
+<meta 
+  name="twitter:description" 
+  content="[DESCRIPTION]"
+/>
+<meta 
+  name="twitter:site" 
+  content="@LetMOPlay"
+/>
+<meta 
+  property="twitter:image" 
+  content="{{ url_for('static', path='img/[URL/IMAGE PATH].jpg') }}"
+/>
+<meta 
+  property="twitter:image:alt"
+  content="[ALT TEXT]" 
+<meta 
+  name="twitter:widgets:autoload"
+  content="off"
+/>
+<link 
+  rel="canonical" 
+  href="https://letmoplay.com/blogs/2023/May/[URL/IMAGE PATH]"
+/>
+{% endblock %}
+
+{% block title %} 
+<title>[TITLE]</title>
+{% endblock %}
+
+{% block content %} 
+<body>
+
+<main id="main">
+
+<!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs">
+  <div class="container">
+
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li><a href="/blogs">Blogs</a></li>
+    </ol>
+    <h2>Let MO Play Blog</h2>
+
+  </div>
+</section><!-- End Breadcrumbs -->
+<!-- ======= Blog Single Section ======= -->
+<div class="container-fluid">
+  <div class="row text-start mx-auto">
+    <section id="blog" class="blog col-12 col-lg-8 col-xl-7 ps-lg-5 pe-lg-5">
+      <div class="container" data-aos="fade-up">
+        <div class="row text-start g-5">
+          <div class="col-12 col-md-12 col-xl-12 g-5 entries">
+            <article class="entry entry-single">
+              <h2 class="entry-title">
+                <a href="#">[TITLE]</a>
+              </h2>
+    
+              <div class="entry-meta">
+                <ul>
+                  <div class="row g-3">
+                    <div class="col-auto">
+                      <li class="d-flex align-items-center">
+                        <i class="bi bi-person"></i> 
+                        <a href="mailto: letmoplay@letmoplay.com">
+                          Brett K.
+                        </a>
+                      </li>       
+                    </div>
+                    <div class="col-auto">
+                      <li class="d-flex align-items-center">
+                        <i class="bi bi-clock"></i>
+                        <a href="#blog">
+                          <time datetime="[YYYY-MM-DD]">
+                            May 16th, 2023
+                          </time>
+                        </a>
+                      </li>
+                    </div>
+                    <div class="col-auto d-none d-md-flex">
+                      <li class="d-flex align-items-center ">
+                        <div id="twitter-follow"></div>
+                      </li>
+                    </div>
+                    <div class="col-auto">
+                      <li class="d-flex align-items-center">
+                        <div id="twitter-share"></div>
+                      </li>
+                    </div>
+                  </div>
+                  <script src="https://platform.twitter.com/widgets.js"></script>
+                  <script>
+                    twttr.ready(function (twttr) {
+                      twttr.widgets.createFollowButton(
+                          "LetMOPlay",
+                          document.getElementById("twitter-follow"),
+                          {
+                            showScreenName: "false"
+                          }
+                      ).then(function (el) {
+                          console.log("Follow button added.");
+                      });
+                      twttr.widgets.createShareButton(
+                          "https:\/\/letmoplay.com\/blogs\/2023\/May\/[URL/IMAGE PATH]",
+                          document.getElementById("twitter-share"),
+                          {
+                              text: "[SHARE TEXT]",
+                              hashtags: "[SHARE HASHTAGS]",
+                          }
+                      ).then(function (el) {
+                          console.log("Share button added.");
+                      });
+                    });
+                  </script>
+                </ul>
+              </div>
+    
+              <div class="entry-content">
+                
+                [BLOG TEXT/PARAGRAPHS]
+                
+                <blockquote>
+                  <p>
+                    "[BLOCKQUOTE]"
+                  </p>
+                </blockquote>
+                
+                [BLOG TEXT/PARAGRAPHS]
+                
+                
+                <div class="container-fluid text-center d-flex align-content-center justify-content-center" id="tweet-container-1"></div>
+                  <script src="https://platform.twitter.com/widgets.js"></script>
+                  <script>
+                    twttr.widgets.createTweet(
+                    "[TWEET ID]",
+                    document.getElementById("tweet-container-1"),
+                    {
+
+                    }
+                    );
+                  </script>
+    
+                [BLOG TEXT/PARAGRAPHS]
+                
+                  <i>
+                    Want to know how you can help? Subscribe to our newsletter (below), 
+                    so you never miss a beat!
+                  </i>
+                </p>
+              </div>
+            </article><!-- End blog entry -->
+          </div>
+        </div>
+      </div>
+    </section><!-- End Blog Single Section -->
+    <div class="col-12 col-lg-2 col-xl-4 text-start pt-md-5 mt-3 pe-lg-5 pe-md-5 pb-5 pt-sm-2"> 
+      <div id="twitter-timeline"></div>      
+        <script>
+          twttr.widgets.createTimeline(
+            {
+              sourceType: "profile",
+              screenName: "LetMOPLay",
+            },
+            document.getElementById("twitter-timeline"),
+            {  
+              chrome: "nofooter",
+              tweetLimit: 5,
+              showReplies: "false",
+            }
+          );
+        </script>
+      </div>
+    </div>
+  </div>
+</div>
+</main><!-- End #main -->
+  
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
+
