@@ -1,5 +1,5 @@
 {% extends "shared/base.html" %}
-{% block header %}
+{% block head %}
 <meta 
   property="og:image" 
   content="{{ url_for('static', path='img/Introduction-to-Value-Betting.jpg') }}"
@@ -57,6 +57,9 @@
 
 {% block title %} 
 <title>An Introduction to Value Betting: How to Spot Value and Maximize Profits in Sports Betting</title>
+{% endblock %}
+
+{% block header %}
 {% endblock %}
 
 {% block content %} 

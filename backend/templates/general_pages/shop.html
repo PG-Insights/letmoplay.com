@@ -1,0 +1,93 @@
+{% extends "shared/base.html" %}
+{% block head %} 
+  <meta 
+    content="Let MO Play Shop" 
+    name="Purchase Let MO Play merchandise and help support legal sports-betting for Missourians."
+  />
+  <meta 
+    property="og:image" 
+    content="{{ url_for('static', path='img/lmp_round_logo.png') }}"
+    alt="Let MO Play circular logo"
+  />
+  <meta 
+    property="og:description" 
+    content="Purchase Let MO Play merchandise and help support legal sports-betting for Missourians."
+  />
+  <meta 
+    property="og:title" 
+    content="Let MO Play Shop"
+  />
+  <meta 
+    name="twitter:card" 
+    content="summary"
+  />
+  <meta 
+    property="twitter:url" 
+    content="https://letmoplay.com/shop"
+  />
+  <meta 
+    name="twitter:title" 
+    content="Let MO Play Shop"
+  />
+  <meta 
+    name="twitter:description" 
+    content="Purchase Let MO Play merchandise and help support legal sports-betting for Missourians."
+  />
+  <meta 
+    name="twitter:site" 
+    content="@LetMOPlay"
+  />
+  <meta 
+    property="twitter:image" 
+    content="{{ url_for('static', path='img/Introduction-to-Value-Betting.jpg') }}"
+  />
+  <meta 
+    property="twitter:image:alt"
+    content="A sports bettor facing away towards the TVs in the blurred background."
+   />  
+  <meta 
+    name="twitter:widgets:autoload"
+    content="off"
+  />
+  <link 
+    rel="canonical" 
+    href="https://letmoplay.com/shop"
+  />
+{% endblock %}
+
+{% block title %}   
+  <title>
+    Let MO Play - Shop
+  </title> 
+{% endblock %} 
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+<main id="main">
+  <!-- ======= Breadcrumbs ======= -->
+  <section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">    
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/join-the-cause">More</a></li>
+      </ol>
+      <h2>Let MO Play Shop</h2>
+    
+    </div>
+  </section>
+  <!-- End Breadcrumbs -->
+  <div class="container-fluid">
+    <div class="row text-start mx-auto">
+      {% include "components/printify.html" %} 
+    </div>
+  </div>
+</main>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
