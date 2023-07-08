@@ -1,0 +1,43 @@
+<!-- Begin blog entry -->
+                <article class="entry">
+                  <div class="entry-img">
+                    <img 
+                      src="{{ url_for('static', path='img/[IMAGE FILE]') }}"
+                      alt="[IMAGE ALT TEXT]" 
+                      class="img-fluid"
+                    >
+                  </div>
+                  <h2 class="entry-title">
+                    <a href="/blogs/[YEAR]/[MONTH]/[FILE-NAME-FOR-URL]">
+                      [TITLE]
+                    </a>
+                  </h2>
+                  <div class="entry-meta">
+                    <ul>
+                      <li class="d-flex align-items-center">
+                        <i class="bi bi-person"></i> 
+                        <a href="/blogs/[YEAR]/[MONTH]/[FILE-NAME-FOR-URL]">
+                          [AUTHOR]
+                        </a>
+                      </li>
+                      <li class="d-flex align-items-center">
+                        <i class="bi bi-clock"></i>
+                        <a href="/blogs/[YEAR]/[MONTH]/[FILE-NAME-FOR-URL]">
+                          <time datetime="[YEAR]-[MONTH-#]-[DAY]">
+                            [MONTH] [DAY]th, [YEAR]
+                          </time>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="entry-content">
+                    <p>
+                      [DESCRIPTION]
+                    </p>
+                    <div class="read-more">
+                      <a href="/blogs/[YEAR]/[MONTH]/[FILE-NAME-FOR-URL]">
+                        Read More
+                      </a>
+                    </div>
+                  </div>
+                </article><!-- End blog entry -->

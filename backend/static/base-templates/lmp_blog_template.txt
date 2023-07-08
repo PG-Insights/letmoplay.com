@@ -1,9 +1,9 @@
 {% extends "shared/base.html" %}
-{% block header %}
+{% block head %}
 <meta 
   property="og:image" 
-  content="{{ url_for('static', path='img/[URL/IMAGE PATH].jpg') }}"
-  alt="[ALT TEXT]"
+  content="{{ url_for('static', path='img/[IMAGE FILE]') }}"
+  alt="[IMAGE ALT TEXT]"
 />
 <meta 
   content="[DESCRIPTION]" 
@@ -19,11 +19,11 @@
 />
 <meta 
   name="twitter:card" 
-  content="summary_large_image"
+  content="summary"
 />
 <meta 
   property="twitter:url" 
-  content="https://letmoplay.com/blogs/2023/May/[URL/IMAGE PATH]"
+  content="https://letmoplay.com/blogs/[YEAR]/[MONTH]/[BLOG-NAME-URL]"
 />
 <meta 
   name="twitter:title" 
@@ -39,23 +39,27 @@
 />
 <meta 
   property="twitter:image" 
-  content="{{ url_for('static', path='img/[URL/IMAGE PATH].jpg') }}"
+  content="{{ url_for('static', path='img/[IMAGE FILE]') }}"
 />
 <meta 
   property="twitter:image:alt"
-  content="[ALT TEXT]" 
+  content="[IMAGE ALT TEXT]"
+ />  
 <meta 
   name="twitter:widgets:autoload"
   content="off"
 />
 <link 
   rel="canonical" 
-  href="https://letmoplay.com/blogs/2023/May/[URL/IMAGE PATH]"
+  href="https://letmoplay.com/blogs/[YEAR]/[MONTH]/[BLOG-NAME-URL]"
 />
 {% endblock %}
 
 {% block title %} 
 <title>[TITLE]</title>
+{% endblock %}
+
+{% block header %}
 {% endblock %}
 
 {% block content %} 
@@ -102,8 +106,8 @@
                       <li class="d-flex align-items-center">
                         <i class="bi bi-clock"></i>
                         <a href="#blog">
-                          <time datetime="[YYYY-MM-DD]">
-                            May 16th, 2023
+                          <time datetime="[[YEAR]-[MONTH-#]-[DAY]]">
+                            [MONTH] [DAY]th, [YEAR]
                           </time>
                         </a>
                       </li>
@@ -132,11 +136,11 @@
                           console.log("Follow button added.");
                       });
                       twttr.widgets.createShareButton(
-                          "https:\/\/letmoplay.com\/blogs\/2023\/May\/[URL/IMAGE PATH]",
+                          "https:\/\/letmoplay.com\/blogs\/[YEAR]\/[MONTH]\/[BLOG-NAME-URL]",
                           document.getElementById("twitter-share"),
                           {
-                              text: "[SHARE TEXT]",
-                              hashtags: "[SHARE HASHTAGS]",
+                              text: "[TWITTER SHARE TEXT]",
+                              hashtags: "#LetMOPlay via @LetMOPlay",
                           }
                       ).then(function (el) {
                           console.log("Share button added.");
@@ -148,7 +152,9 @@
     
               <div class="entry-content">
                 
-                [BLOG TEXT/PARAGRAPHS]
+                <h3>[TITLE]</h3>
+                
+                [BLOG TEXT 1]
                 
                 <blockquote>
                   <p>
@@ -156,7 +162,7 @@
                   </p>
                 </blockquote>
                 
-                [BLOG TEXT/PARAGRAPHS]
+                [BLOG TEXT 2]
                 
                 
                 <div class="container-fluid text-center d-flex align-content-center justify-content-center" id="tweet-container-1"></div>
@@ -171,11 +177,10 @@
                     );
                   </script>
     
-                [BLOG TEXT/PARAGRAPHS]
+                [BLOG TEXT 3]
                 
                   <i>
-                    Want to know how you can help? Subscribe to our newsletter (below), 
-                    so you never miss a beat!
+                    Want to know how you can help? Subscribe to our newsletter (below) so you never miss a beat!
                   </i>
                 </p>
               </div>
@@ -213,4 +218,3 @@
 
 {% block scripts %}
 {% endblock %}
-
