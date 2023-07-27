@@ -6,19 +6,22 @@ Created on Fri Mar 10 19:17:04 2023
 @author: dale
 """
 
-from sqlalchemy import Column, Integer, String, Boolean
-
+import uuid
+from sqlalchemy import Column, String, Boolean, Date
+from sqlalchemy.dialects.postgresql import UUID
 from db.base_class import Base
+from datetime import date
 
-
-class User(Base):
+class Lmp_User(Base):
     id = Column(
-        Integer,
+        UUID,
         primary_key=True,
-        index=True
+        index=True,
+        default=uuid.uuid4
     )
     username = Column(
-        String,unique=True,
+        String,
+        unique=True,
         nullable=False
     )
     email = Column(
@@ -27,9 +30,18 @@ class User(Base):
         unique=True,
         index=True
     )
-    hashed_password = Column(
+    password = Column(
         String,
         nullable=False
+    )
+    zip_code = Column(
+        String,
+        nullable=True,
+        default=None
+    )
+    date_posted = Column(
+        Date,
+        default=date.today()
     )
     is_active = Column(
         Boolean(),

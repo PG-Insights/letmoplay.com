@@ -7,17 +7,17 @@ Created on Sun Mar  5 21:10:59 2023
 """
 
 import os
-import pandas as pd
-from datetime import datetime
+from datetime import date
 from pathlib import Path
 from fastapi import APIRouter, Request, Form, HTTPException, Depends
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
-from get_all_blogs_dict import get_all_blogs_dict
-from route_subscribers import create_subscriber, remove_subscriber
+
+from blogs.get_all_blogs_dict import get_all_blogs_dict
+from db_routes.route_subscribers import create_subscriber, remove_subscriber
+from db_routes.route_giveaway_entrants import create_entrant
 from schemas.subscribers import SubscriberCreate
-from route_giveaway_entrants import create_entrant
 from schemas.giveaway_entrants import EntrantCreate
 from db.session import get_db
 
@@ -288,48 +288,12 @@ async def submit_form(request: Request,
                       message: str = Form(...),
                       db: Session = Depends(get_db),
                       ) -> templates.TemplateResponse:
-    # Create DataFrame
-    data = {
-        'Name': [str(name)],
-        'Email': [str(email)],
-        'Subject': [str(subject)],
-        'Message': [str(message)],
-        'Timestamp': [str(datetime.now())]
-    }
-    df = pd.DataFrame(data)
-    data_path = Path(
-        '.',
-        'backend',
-        'db',
-        'emails_db',
-        'subscribers.csv'
-    )
-    if os.path.exists(str(data_path)):
-        df = pd.concat(
-            [
-                pd.read_csv(str(data_path)).copy(),
-                df.copy()
-            ],
-            axis=0
-        )
-        
-    # Drop duplicates
-    df = df.copy().drop_duplicates(
-        subset=[
-            'Email', 
-            'Message',
-        ],
-        ignore_index=True,
-    )
-    
-    # Save to CSV file
-    df.to_csv(str(data_path), index=False)
     
     subscriber_data = SubscriberCreate(email=email)
     create_subscriber(subscriber=subscriber_data, db=db)
-
-    # Render success template
+    
     blogs_dict = await get_all_blogs_for_nav()
+    
     return templates.TemplateResponse(
         str(
             Path(
@@ -367,48 +331,11 @@ async def submit_email_form(request: Request,
                             email: str = Form(...),
                             db: Session = Depends(get_db),
                             ) -> templates.TemplateResponse:
-    # Create DataFrame
-    data = {
-        'Name': ['None'],
-        'Email': [str(email)],
-        'Subject': ['None'],
-        'Message': ['None'],
-        'Timestamp': [str(datetime.now())]
-    }
-    df = pd.DataFrame(data)
-    data_path = Path(
-        '.',
-        'backend',
-        'db',
-        'emails_db',
-        'subscribers.csv'
-    )
-    if os.path.exists(str(data_path)):
-        df = pd.concat(
-            [
-                pd.read_csv(str(data_path)).copy(),
-                df.copy()
-            ],
-            axis=0
-        )
-        
-    # Drop duplicates
-    df = df.copy().drop_duplicates(
-        subset=[
-            'Email', 
-            'Message',
-        ],
-        ignore_index=True,
-    )
-    
-    # Save to CSV file
-    df.to_csv(str(data_path), index=False)
-
-    # Render success template
-    blogs_dict = await get_all_blogs_for_nav()
 
     subscriber_data = SubscriberCreate(email=email)
     create_subscriber(subscriber=subscriber_data, db=db)
+    
+    blogs_dict = await get_all_blogs_for_nav()
     
     return templates.TemplateResponse(
         str(
@@ -428,53 +355,21 @@ async def submit_email_form(request: Request,
 @general_pages_router.post("/submit-giveaway", response_model=None)
 async def submit_giveaway_form(request: Request,
                             email: str = Form(...),
+                            zip_code: str = Form(None),
                             db: Session = Depends(get_db),
                             ) -> templates.TemplateResponse:
-    # Create DataFrame
-    data = {
-        'Name': ['None'],
-        'Email': [str(email)],
-        'Subject': ['None'],
-        'Message': ['None'],
-        'Timestamp': [str(datetime.now())]
-    }
-    df = pd.DataFrame(data)
-    data_path = Path(
-        '.',
-        'backend',
-        'db',
-        'emails_db',
-        'subscribers.csv'
-    )
-    if os.path.exists(str(data_path)):
-        df = pd.concat(
-            [
-                pd.read_csv(str(data_path)).copy(),
-                df.copy()
-            ],
-            axis=0
-        )
-        
-    # Drop duplicates
-    df = df.copy().drop_duplicates(
-        subset=[
-            'Email', 
-            'Message',
-        ],
-        ignore_index=True,
-    )
-    
-    # Save to CSV file
-    df.to_csv(str(data_path), index=False)
 
-    # Render success template
     blogs_dict = await get_all_blogs_for_nav()
 
     subscriber_data = SubscriberCreate(email=email)
     create_subscriber(subscriber=subscriber_data, db=db)
     
-    entrant_data = EntrantCreate(email=email)
+    if not zip_code:
+        entrant_data = EntrantCreate(email=email)        
+    else:
+        entrant_data = EntrantCreate(email=email, zip_code=zip_code)
     create_entrant(entrant=entrant_data, db=db)
+        
     
     return templates.TemplateResponse(
         str(

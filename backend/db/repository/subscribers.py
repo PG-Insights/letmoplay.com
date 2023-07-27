@@ -8,8 +8,8 @@ Created on Sat Apr 15 20:06:47 2023
 
 from sqlalchemy.orm import Session
 from schemas.subscribers import SubscriberCreate
-from db.models.subscribers import Subscriber
-from datetime import datetime
+from db.models.subscribers import Lmp_Subscriber as Subscriber
+from datetime import date
 
 
 def create_new_subscriber(
@@ -18,7 +18,7 @@ def create_new_subscriber(
     subscriber = Subscriber(
         email = subscriber.email,
         agree_tos=True,
-        date_posted=datetime.now()
+        date_posted=date.today()
     )
     try:
         db.add(subscriber)

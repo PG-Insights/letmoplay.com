@@ -1,15 +1,17 @@
 # -*- coding: utf-8 -*-
 
-from sqlalchemy import Column, Integer, String, Boolean, Date
-
+import uuid
+from sqlalchemy import Column, String, Boolean, Date
+from sqlalchemy.dialects.postgresql import UUID
 from db.base_class import Base
+from datetime import date
 
-
-class Entrant(Base):
+class Lmp_Entrant(Base):
     id = Column(
-        Integer,
+        UUID,
         primary_key=True,
-        index=True
+        index=True,
+        default=uuid.uuid4
     )
     email = Column(
         String,
@@ -21,6 +23,12 @@ class Entrant(Base):
         Boolean(),
         default=True
     )
+    zip_code = Column(
+        String,
+        nullable=True,
+        default=None,
+    )
     date_posted = Column(
-        Date
+        Date,
+        default=date.today()
     )

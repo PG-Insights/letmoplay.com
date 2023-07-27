@@ -30,7 +30,7 @@ from fastapi import APIRouter
 import route_general_pages
 import route_subscribers
 import route_giveaway_entrants
-
+#import route_users
 
 api_router = APIRouter()
 api_router.include_router(
@@ -38,6 +38,11 @@ api_router.include_router(
     prefix="",
     tags=["general_pages"]
 )
+#api_router.include_router(
+#    route_users.router,
+#    prefix="/users",
+#    tags=["user"]
+#)
 api_router.include_router(
     route_subscribers.router,
     prefix="/subscribers",

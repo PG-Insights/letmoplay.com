@@ -1,26 +1,23 @@
 from sqlalchemy.orm import Session
 from schemas.giveaway_entrants import EntrantCreate
-from db.models.giveaway_entrants import Entrant
-from datetime import datetime
+from db.models.giveaway_entrants import Lmp_Entrant as Entrant
+from datetime import date
 
 
 def create_new_entrant(
         entrant:EntrantCreate,
         db:Session):
     entrant = Entrant(
-        email = entrant.email,
+        email=entrant.email,
+        zip_code=entrant.zip_code, 
+        date_posted=date.today(),
         agree_tos=True,
-        date_posted=datetime.now()
     )
-    try:
-        db.add(entrant)
-    except:
-        db.rollback()
-    else:
-        db.commit()
-        db.refresh(entrant)
-    finally:
-        return entrant
+    db.add(entrant)
+    db.commit()
+    db.refresh(entrant)
+   
+    return entrant
 
     
 def remove_entrant(

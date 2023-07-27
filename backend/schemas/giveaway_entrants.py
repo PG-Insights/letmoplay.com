@@ -5,7 +5,7 @@ from pydantic import BaseModel, EmailStr
 
 class EntrantCreate(BaseModel):
     email : EmailStr
-    
+    zip_code: str = None
 
 class ShowEntrant(BaseModel):
     email : EmailStr

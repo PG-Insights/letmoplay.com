@@ -11,7 +11,7 @@ from fastapi import Depends
 from db.session import get_db
 from schemas.giveaway_entrants import EntrantCreate, ShowEntrant
 from db.repository.giveaway_entrants import create_new_entrant
-from db.models.giveaway_entrants import Entrant
+from db.models.giveaway_entrants import Lmp_Entrant as Entrant
 
 router = APIRouter()
 

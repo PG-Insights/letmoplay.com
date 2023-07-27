@@ -6,16 +6,19 @@ Created on Sat Apr 15 20:02:12 2023
 @author: dale
 """
 
-from sqlalchemy import Column, Integer, String, Boolean, Date
-
+import uuid
+from sqlalchemy import Column, String, Boolean, Date
+from sqlalchemy.dialects.postgresql import UUID
 from db.base_class import Base
+from datetime import date
 
 
-class Subscriber(Base):
+class Lmp_Subscriber(Base):
     id = Column(
-        Integer,
+        UUID,
         primary_key=True,
-        index=True
+        index=True,
+        default=uuid.uuid4
     )
     email = Column(
         String,
@@ -28,5 +31,6 @@ class Subscriber(Base):
         default=True
     )
     date_posted = Column(
-        Date
+        Date,
+        default=date.today()
     )

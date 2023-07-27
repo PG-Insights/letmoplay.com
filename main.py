@@ -13,11 +13,15 @@ MAIN_DIR = Path(__file__).parent
 BACKEND_DIR = Path(MAIN_DIR, 'backend')
 API_DIR = Path(BACKEND_DIR, 'apis')
 VERSION1_DIR = Path(API_DIR, 'version1')
+DB_ROUTES_DIR = Path(VERSION1_DIR, 'db_routes')
+MIDDLEWARE_DIR = Path(VERSION1_DIR, 'middleware')
+BLOGS_ROUTES_DIR = Path(VERSION1_DIR, 'blogs')
 CORE_DIR = Path(BACKEND_DIR, 'core')
 TEMPLATES_DIR = Path(BACKEND_DIR, 'templates')
 STATIC_DIR = Path(BACKEND_DIR, 'static')
 DB_DIR = Path(BACKEND_DIR, 'db')
 MODELS_DIR = Path(DB_DIR, 'models')
+SUPA_DB_DIR = Path(DB_DIR, '_supabase')
 
 
 if str(MAIN_DIR) not in sys.path:
@@ -32,6 +36,15 @@ if str(API_DIR) not in sys.path:
 if str(VERSION1_DIR) not in sys.path:
     sys.path.append(str(VERSION1_DIR))
     
+if str(DB_ROUTES_DIR) not in sys.path:   
+    sys.path.append(str(DB_ROUTES_DIR))
+    
+if str(MIDDLEWARE_DIR) not in sys.path:   
+    sys.path.append(str(MIDDLEWARE_DIR))
+    
+if str(BLOGS_ROUTES_DIR) not in sys.path:   
+    sys.path.append(str(BLOGS_ROUTES_DIR))
+    
 if str(CORE_DIR) not in sys.path:   
     sys.path.append(str(CORE_DIR))
     
@@ -40,6 +53,9 @@ if str(TEMPLATES_DIR) not in sys.path:
     
 if str(STATIC_DIR) not in sys.path:
     sys.path.append(str(STATIC_DIR))
+    
+if str(DB_DIR) not in sys.path: 
+    sys.path.append(str(DB_DIR))
     
 if str(MODELS_DIR) not in sys.path: 
     sys.path.append(str(MODELS_DIR))
@@ -59,7 +75,10 @@ def include_router(app):
     
 
 def include_customer_404_handler(app):
-    app.add_exception_handler(status.HTTP_404_NOT_FOUND, not_found_exception_handler)
+    app.add_exception_handler(
+        status.HTTP_404_NOT_FOUND, 
+        not_found_exception_handler
+    )
     
 
 def configure_static(app):
@@ -77,7 +96,10 @@ def create_tables():
 
 
 def start_application():
-    app = FastAPI(title=settings.PROJECT_NAME,version=settings.PROJECT_VERSION)
+    app = FastAPI(
+        title=settings.PROJECT_NAME,
+        version=settings.PROJECT_VERSION
+    )
     include_customer_404_handler(app)
     include_router(app)
     configure_static(app)

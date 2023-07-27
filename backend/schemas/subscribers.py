@@ -10,11 +10,12 @@ from pydantic import BaseModel,EmailStr
 
 
 class SubscriberCreate(BaseModel):
-    email : EmailStr
+    email: EmailStr
+    zip_code: str = None
     
 
 class ShowSubscriber(BaseModel):
-    email : EmailStr
+    email: EmailStr
 
     class Config():
         orm_mode = True

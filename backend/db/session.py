@@ -13,7 +13,7 @@ from core.config import settings
 
 from typing import Generator  
 
-SQLALCHEMY_DATABASE_URL = settings.DATABASE_URL
+SQLALCHEMY_DATABASE_URL = settings.SUPA_URL
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
    

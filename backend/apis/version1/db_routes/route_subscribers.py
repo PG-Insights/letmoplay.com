@@ -13,7 +13,7 @@ from fastapi import Depends
 from db.session import get_db
 from schemas.subscribers import SubscriberCreate, ShowSubscriber
 from db.repository.subscribers import create_new_subscriber
-from db.models.subscribers import Subscriber
+from db.models.subscribers import Lmp_Subscriber as Subscriber
 
 router = APIRouter()
 
