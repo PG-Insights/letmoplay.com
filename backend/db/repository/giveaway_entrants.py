@@ -13,11 +13,16 @@ def create_new_entrant(
         date_posted=date.today(),
         agree_tos=True,
     )
-    db.add(entrant)
-    db.commit()
-    db.refresh(entrant)
-   
-    return entrant
+    try:
+        db.add(entrant)
+    except:
+        print('\nDb Entrant addition failed\n')
+        db.rollback()
+    else:
+        db.commit()
+        db.refresh(entrant)
+    finally:
+        return entrant
 
     
 def remove_entrant(
