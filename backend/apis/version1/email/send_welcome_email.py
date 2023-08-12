@@ -16,5 +16,4 @@ def send_welcome_email(email_str: str) -> None:
         email_str,
         'letmoplay@letmoplay.com',
         url_str='welcome_email',
-        pdf_path=str(Path(dir_path, 'pdf_attach', 'Welcome to the Let MO Play Team.pdf')),
     )
