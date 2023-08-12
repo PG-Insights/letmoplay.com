@@ -308,21 +308,22 @@ async def submit_form(request: Request,
     except:
         print('email send failure')
     
-    blogs_dict = await get_all_blogs_for_nav()
-    
-    return templates.TemplateResponse(
-        str(
-            Path(
-                'components',
-                'success.html'
-            )
-        ),
-        {
-            "request": request,
-            "name": name,
-            "all_blogs_dict": blogs_dict,
-        }
-    )
+    finally:
+        blogs_dict = await get_all_blogs_for_nav()
+        
+        return templates.TemplateResponse(
+            str(
+                Path(
+                    'components',
+                    'success.html'
+                )
+            ),
+            {
+                "request": request,
+                "name": email,
+                "all_blogs_dict": blogs_dict,
+            }
+        )
 
 
 @general_pages_router.get("/email-form", response_class=HTMLResponse)
@@ -363,21 +364,22 @@ async def submit_email_form(request: Request,
     except:
         print('email send failure')
     
-    blogs_dict = await get_all_blogs_for_nav()
-    
-    return templates.TemplateResponse(
-        str(
-            Path(
-                'components',
-                'success.html'
-            )
-        ),
-        {
-            "request": request,
-            "name": email,
-            "all_blogs_dict": blogs_dict,
-        }
-    )
+    finally:
+        blogs_dict = await get_all_blogs_for_nav()
+        
+        return templates.TemplateResponse(
+            str(
+                Path(
+                    'components',
+                    'success.html'
+                )
+            ),
+            {
+                "request": request,
+                "name": email,
+                "all_blogs_dict": blogs_dict,
+            }
+        )
 
 
 @general_pages_router.post("/submit-giveaway", response_model=None)
@@ -387,17 +389,17 @@ async def submit_giveaway_form(request: Request,
                                zip_code: str = Form(None),
                                db: Session = Depends(get_db),
                                ) -> templates.TemplateResponse:
-    subscriber = SubscriberCreate(email=email)
-    try:
-        create_subscriber(subscriber, db=db)
-    except IntegrityError:
-        pass
     if not zip_code:
         entrant = EntrantCreate(email=email)        
     else:
         entrant = EntrantCreate(email=email, zip_code=zip_code)
     try:
         create_entrant(entrant=entrant, db=db)
+    except IntegrityError:
+        pass
+    subscriber = SubscriberCreate(email=email)
+    try:
+        create_subscriber(subscriber, db=db)
     except IntegrityError:
         pass
     try:    
@@ -408,22 +410,22 @@ async def submit_giveaway_form(request: Request,
         print('email sent')
     except:
         print('email send failure')
-
-    blogs_dict = await get_all_blogs_for_nav()
-    
-    return templates.TemplateResponse(
-        str(
-            Path(
-                'components',
-                'success.html'
-            )
-        ),
-        {
-            "request": request,
-            "name": email,
-            "all_blogs_dict": blogs_dict,
-        }
-    )
+    finally:
+        blogs_dict = await get_all_blogs_for_nav()
+        
+        return templates.TemplateResponse(
+            str(
+                Path(
+                    'components',
+                    'success.html'
+                )
+            ),
+            {
+                "request": request,
+                "name": email,
+                "all_blogs_dict": blogs_dict,
+            }
+        )
 
 
 @general_pages_router.get("/unsubscribe", response_class=HTMLResponse)
