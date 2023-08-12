@@ -6,20 +6,24 @@ Created on Sun Mar  5 21:10:59 2023
 @author: dale
 """
 
-import os
-from datetime import date
 from pathlib import Path
 from fastapi import APIRouter, Request, Form, HTTPException, Depends
+from fastapi import BackgroundTasks
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
-
+from sqlalchemy.exc import IntegrityError
 from blogs.get_all_blogs_dict import get_all_blogs_dict
 from db_routes.route_subscribers import create_subscriber, remove_subscriber
 from db_routes.route_giveaway_entrants import create_entrant
 from schemas.subscribers import SubscriberCreate
 from schemas.giveaway_entrants import EntrantCreate
 from db.session import get_db
+
+from version1.email.send_welcome_email import send_welcome_email
+from version1.email.send_message_received_email import (
+  send_message_received_email
+)
 
 templates_dir = Path(
     Path(__file__).parents[2],
@@ -282,6 +286,7 @@ async def form(request: Request):
 
 @general_pages_router.post("/submit", response_model=None)
 async def submit_form(request: Request,
+                      background_tasks: BackgroundTasks,
                       name: str = Form(...),
                       email: str = Form(...),
                       subject: str = Form(...),
@@ -289,8 +294,19 @@ async def submit_form(request: Request,
                       db: Session = Depends(get_db),
                       ) -> templates.TemplateResponse:
     
-    subscriber_data = SubscriberCreate(email=email)
-    create_subscriber(subscriber=subscriber_data, db=db)
+    subscriber = SubscriberCreate(email=email)
+    try:
+        create_subscriber(subscriber, db=db)
+    except IntegrityError:
+        pass
+    try:    
+        background_tasks.add_task(
+            send_message_received_email,
+            str(email).lower()
+        )
+        print('email sent')
+    except:
+        print('email send failure')
     
     blogs_dict = await get_all_blogs_for_nav()
     
@@ -328,12 +344,24 @@ async def email_form(request: Request):
 
 @general_pages_router.post("/submit-email", response_model=None)
 async def submit_email_form(request: Request,
+                            background_tasks: BackgroundTasks,
                             email: str = Form(...),
                             db: Session = Depends(get_db),
                             ) -> templates.TemplateResponse:
 
-    subscriber_data = SubscriberCreate(email=email)
-    create_subscriber(subscriber=subscriber_data, db=db)
+    subscriber = SubscriberCreate(email=email)
+    try:
+        create_subscriber(subscriber, db=db)
+    except IntegrityError:
+        pass
+    try:    
+        background_tasks.add_task(
+            send_welcome_email,
+            str(email).lower()
+        )
+        print('email sent')
+    except:
+        print('email send failure')
     
     blogs_dict = await get_all_blogs_for_nav()
     
@@ -354,22 +382,34 @@ async def submit_email_form(request: Request,
 
 @general_pages_router.post("/submit-giveaway", response_model=None)
 async def submit_giveaway_form(request: Request,
-                            email: str = Form(...),
-                            zip_code: str = Form(None),
-                            db: Session = Depends(get_db),
-                            ) -> templates.TemplateResponse:
+                               background_tasks: BackgroundTasks,
+                               email: str = Form(...),
+                               zip_code: str = Form(None),
+                               db: Session = Depends(get_db),
+                               ) -> templates.TemplateResponse:
+    subscriber = SubscriberCreate(email=email)
+    try:
+        create_subscriber(subscriber, db=db)
+    except IntegrityError:
+        pass
+    if not zip_code:
+        entrant = EntrantCreate(email=email)        
+    else:
+        entrant = EntrantCreate(email=email, zip_code=zip_code)
+    try:
+        create_entrant(entrant=entrant, db=db)
+    except IntegrityError:
+        pass
+    try:    
+        background_tasks.add_task(
+            send_welcome_email,
+            str(email).lower()
+        )
+        print('email sent')
+    except:
+        print('email send failure')
 
     blogs_dict = await get_all_blogs_for_nav()
-
-    subscriber_data = SubscriberCreate(email=email)
-    create_subscriber(subscriber=subscriber_data, db=db)
-    
-    if not zip_code:
-        entrant_data = EntrantCreate(email=email)        
-    else:
-        entrant_data = EntrantCreate(email=email, zip_code=zip_code)
-    create_entrant(entrant=entrant_data, db=db)
-        
     
     return templates.TemplateResponse(
         str(
@@ -408,23 +448,16 @@ async def unsubscribe(
 @general_pages_router.post("/unsubscribe-submit", response_model=None)
 async def submit_unsubscribe_form(
     request: Request,
+    background_tasks: BackgroundTasks,
     email: str = Form(...),
     db: Session = Depends(get_db)
 ) -> templates.TemplateResponse:
-    data_path = Path(
-        '.',
-        'backend',
-        'db',
-        'emails_db',
-        'subscribers.csv'
+
+    background_tasks.add_task(
+        remove_subscriber, 
+        email, 
+        db=db
     )
-    if os.path.exists(str(data_path)):
-        df = pd.read_csv(str(data_path))
-        new_df = df.copy()[
-            df['Email'].str.casefold() != (str(email).casefold())
-        ]
-        new_df.to_csv(str(data_path), index=False)
-    remove_subscriber(email, db=db)
     blogs_dict = await get_all_blogs_for_nav()
     return templates.TemplateResponse(
         str(
