@@ -16,8 +16,10 @@ from sqlalchemy.exc import IntegrityError
 from blogs.get_all_blogs_dict import get_all_blogs_dict
 from db_routes.route_subscribers import create_subscriber, remove_subscriber
 from db_routes.route_giveaway_entrants import create_entrant
+from db_routes.route_simple_messages import create_simple_message
 from schemas.subscribers import SubscriberCreate
 from schemas.giveaway_entrants import EntrantCreate
+from schemas.simple_messages import SimpleMessageCreate
 from db.session import get_db
 
 from version1.email.send_welcome_email import send_welcome_email
@@ -266,6 +268,7 @@ async def blog(
         },
     )
 
+
 @general_pages_router.get("/form", response_class=HTMLResponse)
 async def form(request: Request):
     blogs_dict = await get_all_blogs_for_nav()
@@ -293,9 +296,15 @@ async def submit_form(request: Request,
                       message: str = Form(...),
                       db: Session = Depends(get_db),
                       ) -> templates.TemplateResponse:
-    
+    message_with_subject = str(subject) + str(message)
+    simple_message = SimpleMessageCreate(
+        name=name,
+        email=email,
+        message=message_with_subject,
+    )
     subscriber = SubscriberCreate(email=email)
     try:
+        create_simple_message(simple_message=simple_message, db=db)
         create_subscriber(subscriber, db=db)
     except IntegrityError:
         pass
