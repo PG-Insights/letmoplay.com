@@ -1,57 +1,65 @@
 {% extends "shared/base.html" %}
 
 {% block head %} 
-<link 
-  rel="stylesheet" 
-  href="https://cdn.jsdelivr.net/npm/fonts-raleway@0.0.4/css/raleway.min.css" 
-  integrity="sha256-bumjII09D4oX+jbH2DbDfvFmfjux5v/KEshhsJayorE=" 
-  crossorigin="anonymous"
->
-<meta 
-  property="og:image" 
-  content="{{ url_for('static', path='img/subscribe-to-newsletter.png') }}"
-  alt="Join the Newsletter and don't miss any news from Let MO Play"
-/>
-<meta 
-  content="Join the Newsletter and don't miss any news from Let MO Play" 
-  name="description"
-/>
-<meta 
-  property="og:description" 
-  content="Join the Newsletter and don't miss any news from Let MO Play"
-/>
-<meta 
-  property="og:title" 
-  content="Join the Let MO Play Newsletter"
-/>
-<meta 
-  name="twitter:card" 
-  content="summary_large_image"
-/>
-<meta 
-  property="twitter:url" 
-  content="https://twitter.com/LetMOPlay"
-/>
-<meta 
-  property="twitter:title" 
-  content="Join the Let MO Play Newsletter"
-/>
-<meta 
-  property="twitter:description" 
-  content="Join the Newsletter and don't miss any news from Let MO Play"
-/>
-<meta 
-  name="twitter:site" 
-  content="@LetMOPlay"
-/>
-<meta 
-  property="twitter:image" 
-  content="{{ url_for('static', path='img/subscribe-to-newsletter.png') }}"
-/>
-<meta 
-  name="twitter:image:alt" 
-  content="Join the Newsletter and don't miss any news from Let MO Play" 
-/>
+  <link 
+    rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/fonts-raleway@0.0.4/css/raleway.min.css" 
+    integrity="sha256-bumjII09D4oX+jbH2DbDfvFmfjux5v/KEshhsJayorE=" 
+    crossorigin="anonymous"
+  >
+  <meta
+    name="og:type"
+    content="website"
+  />
+  <meta 
+    property="og:image" 
+    content="{{ url_for('static', path='img/subscribe-to-newsletter.png') }}"
+    alt="Join the Let MO Play Newsletter so you're up-to-date on the latest Missouri Sports Betting news and legislation."
+  />
+  <meta 
+    content="Join the Let MO Play Newsletter so you're up-to-date on the latest Missouri Sports Betting news and legislation." 
+    name="description"
+  />
+  <meta 
+    property="og:description" 
+    content="Join the Let MO Play Newsletter so you're up-to-date on the latest Missouri Sports Betting news and legislation."
+  />
+  <meta 
+    property="og:title" 
+    content="Join the Let MO Play Newsletter"
+  />
+  <meta 
+    property="og:url" 
+    content="https://letmoplay.com/join-the-cause"
+  />
+  <meta 
+    name="twitter:card" 
+    content="summary_large_image"
+  />
+  <meta 
+    property="twitter:url" 
+    content="https://letmoplay.com/join-the-cause"
+  />
+  <meta 
+    property="twitter:title" 
+    content="Join the Let MO Play Newsletter"
+  />
+  <meta 
+    property="twitter:description" 
+    content="Join the Let MO Play Newsletter so you're up-to-date on the latest Missouri Sports Betting news and legislation."
+  />
+  <meta 
+    name="twitter:site" 
+    content="@LetMOPlay"
+  />
+  <meta 
+    property="twitter:image" 
+    content="{{ url_for('static', path='img/subscribe-to-newsletter.png') }}"
+  />
+  <meta 
+    name="twitter:image:alt" 
+    content="Join the Let MO Play Newsletter so you're up-to-date on the latest Missouri Sports Betting news and legislation." 
+  />
 {% endblock %}
 
 {% block title %}
