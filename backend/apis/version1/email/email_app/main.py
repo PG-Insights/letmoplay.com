@@ -73,5 +73,4 @@ def transfer_files_to_remote_and_send_email(
     time.sleep(0.1)
     commands.run_remote_command_in_shell(conn, c3)
     time.sleep(0.1)
-    print('\nThe files have been successfully removed\n')
 

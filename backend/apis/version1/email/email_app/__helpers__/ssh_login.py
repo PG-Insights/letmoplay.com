@@ -29,4 +29,3 @@ def return_ssh_connection(
 
 if __name__ == '__main__':
     conn = return_ssh_connection()
-    print(conn.is_connected)

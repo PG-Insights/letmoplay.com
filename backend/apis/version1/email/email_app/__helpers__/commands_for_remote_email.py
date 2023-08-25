@@ -140,4 +140,3 @@ if __name__ == '__main__':
         png_path='test-path.png',
         pdf_path='test-path.pdf'
     )
-    print(vm_command)

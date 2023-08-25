@@ -25,7 +25,7 @@
         </div>
       </div>
       <div class="col-lg-6 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="100">
-        <form action="/submit" method="post" class="php-email-form">
+        <form action="/submit" method="post" class="php-email-form" id="contact-form" name="contact-form">
           <div class="row">
             <div class="col-md-6 form-group">
               <input type="text" name="name" class="form-control shadow-sm bg-body rounded" id="name" placeholder="Your Name">
@@ -40,14 +40,52 @@
           <div class="form-group mt-3">
             <textarea class="form-control shadow-sm 5 bg-body rounded" name="message" rows="5" placeholder="Message" id="message"></textarea>
           </div>
-          <div class="my-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your message has been sent. Thank you!</div>
+          <div class="text-center">
+            <button type="submit">Send Message</button>
           </div>
-          <div class="text-center"><button type="submit">Send Message</button></div>
         </form>
       </div>
     </div>
   </div>
 </section><!-- End Contact Section -->
+<div class="modal fade" id="humanCheckModal" tabindex="-1" aria-labelledby="humanCheckModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="humanCheckModalLabel">Human Verification</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="g-recaptcha" data-sitekey="6LclFNQnAAAAAHJTJYHnz4cdDw-KjcD8g4Fz6qyc"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="confirmSubmit">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var form = document.getElementById('contact-form');
+  
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+  
+      var myModal = new bootstrap.Modal(document.getElementById('humanCheckModal'), {});
+      myModal.show();
+    });
+  
+    var confirmSubmitButton = document.getElementById('confirmSubmit');
+  
+    confirmSubmitButton.addEventListener('click', function() {
+      var captchaResponse = grecaptcha.getResponse();
+  
+      if (captchaResponse.length !== 0) {
+        form.submit();
+      } else {
+        alert('Please verify that you are human.');
+      }
+    });
+  });
+</script>

@@ -313,9 +313,8 @@ async def submit_form(request: Request,
             send_message_received_email,
             str(email).lower()
         )
-        print('email sent')
     except:
-        print('email send failure')
+        pass
     
     finally:
         blogs_dict = await get_all_blogs_for_nav()
@@ -369,10 +368,8 @@ async def submit_email_form(request: Request,
             send_welcome_email,
             str(email).lower()
         )
-        print('email sent')
     except:
-        print('email send failure')
-    
+        pass
     finally:
         blogs_dict = await get_all_blogs_for_nav()
         
@@ -416,9 +413,8 @@ async def submit_giveaway_form(request: Request,
             send_welcome_email,
             str(email).lower()
         )
-        print('email sent')
     except:
-        print('email send failure')
+        pass
     finally:
         blogs_dict = await get_all_blogs_for_nav()
         
