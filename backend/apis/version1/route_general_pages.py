@@ -240,7 +240,6 @@ async def blog(
     request: Request,
     blog_name: str,
 ):
-    # Construct the path to the blog file
     blog_file_path = Path(
         Path(__file__).parents[2],
         'templates',
@@ -266,24 +265,6 @@ async def blog(
             "request": request,
             "all_blogs_dict": blogs_dict,
         },
-    )
-
-
-@general_pages_router.get("/form", response_class=HTMLResponse)
-async def form(request: Request):
-    blogs_dict = await get_all_blogs_for_nav()
-    return templates.TemplateResponse(
-        str(
-            Path(
-                'components',
-                'form.html'
-            )
-        ),
-        {
-            "request": request,
-            "all_blogs_dict": blogs_dict,
-            
-        }
     )
 
 
@@ -315,7 +296,6 @@ async def submit_form(request: Request,
         )
     except:
         pass
-    
     finally:
         blogs_dict = await get_all_blogs_for_nav()
         
@@ -332,23 +312,6 @@ async def submit_form(request: Request,
                 "all_blogs_dict": blogs_dict,
             }
         )
-
-
-@general_pages_router.get("/email-form", response_class=HTMLResponse)
-async def email_form(request: Request):
-    blogs_dict = await get_all_blogs_for_nav()
-    return templates.TemplateResponse(
-        str(
-            Path(
-                'components',
-                'email-form.html'
-            )
-        ),
-        {
-            "request": request,
-            "all_blogs_dict": blogs_dict,
-        }
-    )
 
 
 @general_pages_router.post("/submit-email", response_model=None)
@@ -491,5 +454,36 @@ async def sitemap(request: Request):
         ),
         {
             "request": request,
+        },
+    )
+
+
+@general_pages_router.get("/{file_name:path}")
+async def general_pages_route(
+    request: Request,
+    file_name: str,
+):
+    general_pages_path = Path(
+        Path(__file__).parents[2],
+        'templates',
+        'general_pages', 
+        f'{file_name}.html',
+    )
+
+    if not general_pages_path.is_file():
+        raise HTTPException(
+            status_code=404, 
+            detail="Page requested not found"
+        )
+    template_path = Path(
+        'general_pages',
+        f'{file_name}.html',
+    )
+    blogs_dict = await get_all_blogs_for_nav()
+    return templates.TemplateResponse(
+        str(template_path),
+        {
+            "request": request,
+            "all_blogs_dict": blogs_dict,
         },
     )
