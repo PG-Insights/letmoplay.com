@@ -13,7 +13,8 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError
-from blogs.get_all_blogs_dict import get_all_blogs_dict
+from version1.blogs.get_all_blogs_dict import get_all_blogs_dict
+from version1.blogs.route_blogs_db_table import get_blogs_db_table_dict
 from db_routes.route_subscribers import create_subscriber, remove_subscriber
 from db_routes.route_giveaway_entrants import create_entrant
 from db_routes.route_simple_messages import create_simple_message
@@ -47,8 +48,12 @@ async def get_all_blogs_for_nav():
 
 
 @general_pages_router.get("/")
-async def home(request: Request):
+async def home(
+      request: Request,
+      db: Session = Depends(get_db)
+):
     blogs_dict = await get_all_blogs_for_nav()
+    blogs_db_table = await get_blogs_db_table_dict(db=db)
     return templates.TemplateResponse(
         str(
             Path(
@@ -59,6 +64,7 @@ async def home(request: Request):
         {
             "request": request,
             "all_blogs_dict": blogs_dict,
+            "blogs_table": blogs_db_table,
         },
     )
 

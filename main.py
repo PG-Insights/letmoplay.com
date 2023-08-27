@@ -105,8 +105,8 @@ def start_application():
         version=settings.PROJECT_VERSION
     )
     include_customer_404_handler(app)
-    include_router(app)
     configure_static(app)
+    include_router(app)
     create_tables()
     return app 
 
