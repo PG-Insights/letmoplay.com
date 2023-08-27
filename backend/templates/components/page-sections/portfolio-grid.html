@@ -17,16 +17,16 @@
 
   <div class="row portfolio-container">
     {% for id, details in blogs_table.items() %}
-    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+    <div class="col-lg-4 col-md-6 portfolio-item {% for p_class in details.portfolio_groups %} {{ p_class[1:-1] }} {% endfor %}">
       <img src="{{ details['creative_path'] }}" class="img-fluid" alt="{{ details['creative_alt'] }}">
       <div class="portfolio-info">
-        <h4>App 1</h4>
-        <p>App</p>
+        <h4>{{ details['title'] }}</h4>
+        <p>{{ details['blog_description'] }}</p>
         <a href="{{ details['creative_path'] }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{ details['title'] }}"><i class="bx bx-plus"></i></a>
         <a href="{{ details['blog_link'] }}" class="details-link" title="Link to {{ details['title'] }}"><i class="bx bx-link"></i></a>
       </div>
     </div>
-
+    {% endfor %}
   </div>
 
 </div>

@@ -6,7 +6,7 @@ Created on Sun Aug 27 12:41:13 2023
 @author: dale
 """
 
-from sqlalchemy import Column, Integer, String, Date
+from sqlalchemy import Column, Integer, String, Date, ARRAY
 from datetime import datetime
 from db.base_class import Base
 
@@ -33,6 +33,14 @@ class Lmp_Blogs(Base):
     blog_link = Column(
         String,
         nullable=True,
+    )
+    blog_description = Column(
+        String,
+        nullable=True,
+    )
+    portfolio_groups = Column(
+        ARRAY(String),
+        default=['filter-bets', 'filter-law', 'filter-sports']
     )
     upload_date = Column(
         Date,
