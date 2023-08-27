@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://letmoplay.com/#hero</loc>
-    </url>
-    <url>
-        <loc>https://letmoplay.com/#about</loc>
-    </url>
-    <url>
-        <loc>https://letmoplay.com/#team</loc>
+        <loc>https://letmoplay.com/</loc>
     </url>
     <url>
         <loc>https://letmoplay.com/blogs/2023/April/Cautious-Optimism-for-Sports-Betting-in-2023</loc>
@@ -37,9 +31,6 @@
         <loc>https://letmoplay.com/blogs/2023/June/Introduction-to-Value-Betting</loc>
     </url>
     <url>
-        <loc>https://letmobet.com</loc>
-    </url>
-    <url>
         <loc>https://twitter.com/LetMOPlay</loc>
     </url>
     <url>
@@ -52,22 +43,10 @@
         <loc>https://letmoplay.com/contact</loc>
     </url>
     <url>
-        <loc>https://twitter.com/TonyForMissouri</loc>
-    </url>
-    <url>
-        <loc>https://www.facebook.com/TonyForMissouri/</loc>
-    </url>
-    <url>
-        <loc>https://www.senate.mo.gov/DistrictWebApplication/Contact?DistrictNumber=34</loc>
-    </url>
-    <url>
         <loc>https://twitter.com/DLHoskins</loc>
     </url>
     <url>
         <loc>https://www.facebook.com/hoskinsformissouri/</loc>
-    </url>
-    <url>
-        <loc>https://www.senate.mo.gov/DistrictWebApplication/Contact?DistrictNumber=21</loc>
     </url>
     <url>
         <loc>https://letmoplay.com/privacy-policy</loc>
@@ -76,27 +55,6 @@
         <loc>https://letmoplay.com/user-agreement</loc>
     </url>
     <url>
-        <loc>https://letmoplay.com/#hero</loc>
-    </url>
-    <url>
-        <loc>https://letmoplay.com/#about</loc>
-    </url>
-    <url>
         <loc>https://letmoplay.com/blogs</loc>
-    </url>
-    <url>
-        <loc>https://letmoplay.com/#contact</loc>
-    </url>
-    <url>
-        <loc>https://letmobet.com</loc>
-    </url>
-    <url>
-        <loc>https://twitter.com/LetMOPlay</loc>
-    </url>
-    <url>
-        <loc>https://facebook.com/LetMOPlay</loc>
-    </url>
-    <url>
-        <loc>https://instagram.com/let.mo.play</loc>
     </url>
 </urlset>
