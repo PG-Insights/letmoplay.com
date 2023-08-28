@@ -309,6 +309,7 @@ async def submit_form(request: Request,
             str(
                 Path(
                     'components',
+                    'transitions',
                     'success.html'
                 )
             ),
@@ -346,6 +347,7 @@ async def submit_email_form(request: Request,
             str(
                 Path(
                     'components',
+                    'transitions',
                     'success.html'
                 )
             ),
@@ -391,6 +393,7 @@ async def submit_giveaway_form(request: Request,
             str(
                 Path(
                     'components',
+                    'transitions',
                     'success.html'
                 )
             ),
