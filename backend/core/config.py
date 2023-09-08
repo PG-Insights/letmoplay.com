@@ -12,14 +12,7 @@ load_dotenv()
 
 class Settings:
     PROJECT_NAME:str = 'Let MO Play'
-    PROJECT_VERSION: str = '1.1.0'
-    
-    POSTGRES_USER : str = os.getenv('POSTGRES_USER')
-    POSTGRES_PASSWORD = os.getenv('POSTGRES_PASSWORD')
-    POSTGRES_SERVER : str = os.getenv('POSTGRES_SERVER')
-    POSTGRES_PORT : str = os.getenv('POSTGRES_PORT')
-    POSTGRES_DB : str = os.getenv('POSTGRES_DB')
-    DATABASE_URL = f'postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_SERVER}:{POSTGRES_PORT}/{POSTGRES_DB}'
+    PROJECT_VERSION: str = '1.2.0'
 
     SUPABASE_ID : str = os.getenv('SUPABASE_ID')
     SUPA_PORT = os.getenv('SUPA_PORT')

@@ -22,10 +22,9 @@ def create_new_simple_message(
     try:
         db.add(created_message)
     except:
-        print('\nMessage to Db addition failed\n')
         db.rollback()
     else:
         db.commit()
         db.refresh(created_message)
-
-    return created_message
+    finally:
+        return created_message

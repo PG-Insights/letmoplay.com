@@ -13,6 +13,7 @@ MAIN_DIR = Path(__file__).parent
 BACKEND_DIR = Path(MAIN_DIR, 'backend')
 API_DIR = Path(BACKEND_DIR, 'apis')
 VERSION1_DIR = Path(API_DIR, 'version1')
+EMAIL_DIR = Path(API_DIR, 'email')
 DB_ROUTES_DIR = Path(VERSION1_DIR, 'db_routes')
 MIDDLEWARE_DIR = Path(VERSION1_DIR, 'middleware')
 BLOGS_ROUTES_DIR = Path(VERSION1_DIR, 'blogs')
@@ -36,6 +37,9 @@ if str(API_DIR) not in sys.path:
 if str(VERSION1_DIR) not in sys.path:
     sys.path.append(str(VERSION1_DIR))
     
+if str(EMAIL_DIR) not in sys.path:   
+    sys.path.append(str(EMAIL_DIR))
+
 if str(DB_ROUTES_DIR) not in sys.path:   
     sys.path.append(str(DB_ROUTES_DIR))
     
@@ -101,8 +105,8 @@ def start_application():
         version=settings.PROJECT_VERSION
     )
     include_customer_404_handler(app)
-    include_router(app)
     configure_static(app)
+    include_router(app)
     create_tables()
     return app 
 
