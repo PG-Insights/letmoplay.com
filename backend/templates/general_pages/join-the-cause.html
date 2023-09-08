@@ -125,5 +125,29 @@
 {% block footer %}
 {% endblock %}
 {% block scripts %}
+<script>
+function removeExistingCsrfTokens() {
+  document.querySelectorAll('input[name="csrf_token"]').forEach(input => {
+    input.remove();
+  });
+}
+setTimeout(function() {
+  removeExistingCsrfTokens();
+  
+  fetch('/generate/')
+  .then(response => response.json()) 
+  .then(data => {
+    const csrfToken = data.csrf_token; 
+
+    document.querySelectorAll('form').forEach(form => {
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = 'csrf_token'; 
+      input.value = csrfToken;
+      form.appendChild(input);
+    });
+  });
+}, 7000);
+</script>
 <script src="https://cdn.jsdelivr.net/npm/fonts-raleway@0.0.4/Gulpfile.min.js"></script>
 {% endblock %}

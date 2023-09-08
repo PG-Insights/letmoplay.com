@@ -6,10 +6,14 @@ Created on Sun Mar  5 21:10:59 2023
 @author: dale
 """
 
+
+import re
+from secrets import token_hex, compare_digest
+from typing import Optional
 from pathlib import Path
 from fastapi import APIRouter, Request, Form, HTTPException, Depends
-from fastapi import BackgroundTasks
-from fastapi.responses import HTMLResponse
+from fastapi import BackgroundTasks, Header
+from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError
@@ -34,6 +38,38 @@ templates_dir = Path(
 
 templates = Jinja2Templates(directory=str(templates_dir))
 general_pages_router = APIRouter()
+
+
+def generate_csrf_token():
+    return token_hex(16)
+
+def constant_time_compare(val1, val2):
+    return compare_digest(val1, val2)
+
+@general_pages_router.get("/generate/")
+async def generate_csrf_token_route(referer: Optional[str] = Header(None)):
+    if referer and re.match(r"https?://([a-zA-Z0-9-]+\.)*letmoplay\.com/", referer):
+        csrf_token = generate_csrf_token()
+        response = JSONResponse({"csrf_token": csrf_token})
+        response.set_cookie(
+            "csrf_token", 
+            csrf_token, 
+            httponly=True, 
+            secure=True,
+            samesite="Strict"
+        )
+        return response
+    else:
+        raise HTTPException(status_code=403, detail="Not authorized to generate CSRF token")
+
+@general_pages_router.post("/validate/")
+async def validate_csrf_token(request: Request, csrf_token: str = Form(...)):
+    cookie_csrf_token = request.cookies.get("csrf_token")
+    if cookie_csrf_token is None or not constant_time_compare(csrf_token, cookie_csrf_token):
+        raise HTTPException(
+            status_code=403, detail="CSRF token does not match"
+        )
+    return {"detail": "CSRF token is valid"}
 
 
 async def get_all_blogs_for_nav():
