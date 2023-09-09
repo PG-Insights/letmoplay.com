@@ -313,11 +313,13 @@ async def blog(
 @general_pages_router.post("/submit", response_model=None)
 async def submit_form(request: Request,
                       background_tasks: BackgroundTasks,
-                      name: str = Form(...),
+                      name: str = Form('None'),
                       email: str = Form(...),
-                      subject: str = Form(...),
-                      message: str = Form(...),
+                      subject: str = Form('None'),
+                      message: str = Form('None'),
+                      csrf_token: str = Form(...),
                       db: Session = Depends(get_db),
+                      _: bool = Depends(validate_csrf_token),
                       ) -> templates.TemplateResponse:
     message_with_subject = str(subject) + str(message)
     simple_message = SimpleMessageCreate(
@@ -361,7 +363,9 @@ async def submit_form(request: Request,
 async def submit_email_form(request: Request,
                             background_tasks: BackgroundTasks,
                             email: str = Form(...),
+                            csrf_token: str = Form(...),
                             db: Session = Depends(get_db),
+                            _: bool = Depends(validate_csrf_token),
                             ) -> templates.TemplateResponse:
 
     subscriber = SubscriberCreate(email=email)
@@ -400,7 +404,9 @@ async def submit_giveaway_form(request: Request,
                                background_tasks: BackgroundTasks,
                                email: str = Form(...),
                                zip_code: str = Form(None),
+                               csrf_token: str = Form(...),
                                db: Session = Depends(get_db),
+                               _: bool = Depends(validate_csrf_token),
                                ) -> templates.TemplateResponse:
     if not zip_code:
         entrant = EntrantCreate(email=email)        
