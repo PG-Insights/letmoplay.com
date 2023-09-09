@@ -49,7 +49,7 @@ def constant_time_compare(val1, val2):
 
 @general_pages_router.get("/generate/")
 async def generate_csrf_token_route(referer: Optional[str] = Header(None)):
-    if referer and re.match(r"https?://([a-zA-Z0-9-]+\.)*letmoplay\.com/", referer):
+    if referer and re.match(r"https?://([a-zA-Z0-9-]+\.)*letmoplay\.com/.*", referer):
         csrf_token = generate_csrf_token()
         response = JSONResponse({"csrf_token": csrf_token})
         response.set_cookie(
