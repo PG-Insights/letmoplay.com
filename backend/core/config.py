@@ -23,6 +23,6 @@ class Settings:
     JWT_SECRET : str = os.getenv('JWT_SECRET')
     PERSONAL_ACCESS : str = os.getenv('PERSONAL_ACCESS')
     LMP_BUCKET : str = os.getenv('LMP_BUCKET')
-    SUPA_URL: str = f'postgresql://postgres:{SUPA_PASSWORD}@db.{SUPABASE_ID}.supabase.co:{SUPA_PORT}/postgres'
-    
+    SUPA_URL: str = f'postgresql://postgres.{SUPABASE_ID}:{SUPA_PASSWORD}@aws-0-us-east-1.pooler.supabase.com:{SUPA_PORT}/postgres'
+
 settings = Settings()
