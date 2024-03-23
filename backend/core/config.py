@@ -13,8 +13,15 @@ load_dotenv()
 class Settings:
     PROJECT_NAME:str = 'Let MO Play'
     PROJECT_VERSION: str = '1.2.0'
+    
+    POSTGRES_USER : str = os.getenv('POSTGRES_USER')
+    POSTGRES_PASSWORD = os.getenv('POSTGRES_PASSWORD')
+    POSTGRES_SERVER : str = os.getenv('POSTGRES_SERVER')
+    POSTGRES_PORT : str = os.getenv('POSTGRES_PORT')
+    POSTGRES_DB : str = os.getenv('POSTGRES_DB')
+    DATABASE_URL = f'postgresql://postgres.vmlrlxucrvvlkczktgvo:{POSTGRES_PASSWORD}@aws-0-us-east-1.pooler.supabase.com:5432/postgres'
 
-    SUPABASE_ID : str = os.getenv('SUPABASE_ID')
+    SUPA_ID : str = os.getenv('SUPA_ID')
     SUPA_PORT = os.getenv('SUPA_PORT')
     SUPABASE_URL : str = os.getenv('SUPABASE_URL')
     SUPA_PUBLIC_KEY : str = os.getenv('SUPA_PUBLIC_KEY')
@@ -23,6 +30,6 @@ class Settings:
     JWT_SECRET : str = os.getenv('JWT_SECRET')
     PERSONAL_ACCESS : str = os.getenv('PERSONAL_ACCESS')
     LMP_BUCKET : str = os.getenv('LMP_BUCKET')
-    SUPA_URL: str = f'postgresql://postgres:{SUPA_PASSWORD}@db.{SUPABASE_ID}.supabase.co:{SUPA_PORT}/postgres'
+    SUPA_URL: str = f'postgresql://postgres:{SUPA_PASSWORD}@db.{SUPA_ID}.supabase.co:{SUPA_PORT}/postgres'
 
 settings = Settings()

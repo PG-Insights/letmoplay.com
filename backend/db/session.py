@@ -12,10 +12,11 @@ from typing import Generator
 from core.config import settings
 
 
-DATABASE_URL = settings.SUPA_URL
-engine = create_engine(DATABASE_URL)
+print(settings.DATABASE_URL)
 
-   
+engine = create_engine(settings.DATABASE_URL)
+
+
 SessionLocal = sessionmaker(
     autocommit=False,
     autoflush=False,
